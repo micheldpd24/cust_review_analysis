@@ -1,0 +1,753 @@
+2025-03-26 16:33:18,308 - INFO - Found 103 files to process.
+2025-03-26 16:33:18,309 - INFO - Created/verified '.archive' folder at: ../data/raw/.archive
+2025-03-26 16:33:18,310 - INFO - Reading file: ../data/raw/raw_reviews_850-875.csv
+2025-03-26 16:33:18,317 - INFO - Reading file: ../data/raw/raw_reviews_2025-2050.csv
+2025-03-26 16:33:18,324 - INFO - Reading file: ../data/raw/raw_reviews_2000-2025.csv
+2025-03-26 16:33:18,327 - INFO - Reading file: ../data/raw/raw_reviews_2700-2725.csv
+2025-03-26 16:33:18,332 - INFO - Reading file: ../data/raw/raw_reviews_2725-2750.csv
+2025-03-26 16:33:18,336 - INFO - Reading file: ../data/raw/raw_reviews_2900-2925.csv
+2025-03-26 16:33:18,340 - INFO - Reading file: ../data/raw/raw_reviews_950-975.csv
+2025-03-26 16:33:18,343 - INFO - Reading file: ../data/raw/raw_reviews_2075-2100.csv
+2025-03-26 16:33:18,346 - INFO - Reading file: ../data/raw/raw_reviews_2250-2275.csv
+2025-03-26 16:33:18,349 - INFO - Reading file: ../data/raw/raw_reviews_2925-2950.csv
+2025-03-26 16:33:18,352 - INFO - Reading file: ../data/raw/raw_reviews_2550-2575.csv
+2025-03-26 16:33:18,355 - INFO - Reading file: ../data/raw/raw_reviews_1125-1150.csv
+2025-03-26 16:33:18,358 - INFO - Reading file: ../data/raw/raw_reviews_3025-3050.csv
+2025-03-26 16:33:18,361 - INFO - Reading file: ../data/raw/raw_reviews_1100-1125.csv
+2025-03-26 16:33:18,363 - INFO - Reading file: ../data/raw/raw_reviews_1875-1900.csv
+2025-03-26 16:33:18,366 - INFO - Reading file: ../data/raw/raw_reviews_3000-3025.csv
+2025-03-26 16:33:18,370 - INFO - Reading file: ../data/raw/raw_reviews_1600-1625.csv
+2025-03-26 16:33:18,372 - INFO - Reading file: ../data/raw/raw_reviews_1625-1650.csv
+2025-03-26 16:33:18,374 - INFO - Reading file: ../data/raw/raw_reviews_1175-1200.csv
+2025-03-26 16:33:18,377 - INFO - Reading file: ../data/raw/raw_reviews_750-775.csv
+2025-03-26 16:33:18,379 - INFO - Reading file: ../data/raw/raw_reviews_1775-1800.csv
+2025-03-26 16:33:18,381 - INFO - Reading file: ../data/raw/raw_reviews_1800-1825.csv
+2025-03-26 16:33:18,384 - INFO - Reading file: ../data/raw/raw_reviews_3075-3100.csv
+2025-03-26 16:33:18,386 - INFO - Reading file: ../data/raw/raw_reviews_1350-1375.csv
+2025-03-26 16:33:18,388 - INFO - Reading file: ../data/raw/raw_reviews_1825-1850.csv
+2025-03-26 16:33:18,390 - INFO - Reading file: ../data/raw/raw_reviews_1450-1475.csv
+2025-03-26 16:33:18,392 - INFO - Reading file: ../data/raw/raw_reviews_1675-1700.csv
+2025-03-26 16:33:18,394 - INFO - Reading file: ../data/raw/raw_reviews_650-675.csv
+2025-03-26 16:33:18,397 - INFO - Reading file: ../data/raw/raw_reviews_2050-2075.csv
+2025-03-26 16:33:18,399 - INFO - Reading file: ../data/raw/raw_reviews_875-900.csv
+2025-03-26 16:33:18,401 - INFO - Reading file: ../data/raw/raw_reviews_1375-1400.csv
+2025-03-26 16:33:18,404 - INFO - Reading file: ../data/raw/raw_reviews_2275-2300.csv
+2025-03-26 16:33:18,406 - INFO - Reading file: ../data/raw/raw_reviews_725-750.csv
+2025-03-26 16:33:18,408 - INFO - Reading file: ../data/raw/raw_reviews_2750-2775.csv
+2025-03-26 16:33:18,410 - INFO - Reading file: ../data/raw/raw_reviews_2200-2225.csv
+2025-03-26 16:33:18,412 - INFO - Reading file: ../data/raw/raw_reviews_2225-2250.csv
+2025-03-26 16:33:18,415 - INFO - Reading file: ../data/raw/raw_reviews_2575-2600.csv
+2025-03-26 16:33:18,418 - INFO - Reading file: ../data/raw/raw_reviews_2950-2975.csv
+2025-03-26 16:33:18,420 - INFO - Reading file: ../data/raw/raw_reviews_2975-3000.csv
+2025-03-26 16:33:18,423 - INFO - Reading file: ../data/raw/raw_reviews_2525-2550.csv
+2025-03-26 16:33:18,425 - INFO - Reading file: ../data/raw/raw_reviews_700-725.csv
+2025-03-26 16:33:18,427 - INFO - Reading file: ../data/raw/raw_reviews_2500-2525.csv
+2025-03-26 16:33:18,430 - INFO - Reading file: ../data/raw/raw_reviews_3050-3075.csv
+2025-03-26 16:33:18,433 - INFO - Reading file: ../data/raw/raw_reviews_900-925.csv
+2025-03-26 16:33:18,435 - INFO - Reading file: ../data/raw/raw_reviews_1150-1175.csv
+2025-03-26 16:33:18,437 - INFO - Reading file: ../data/raw/raw_reviews_825-850.csv
+2025-03-26 16:33:18,439 - INFO - Reading file: ../data/raw/raw_reviews_1475-1500.csv
+2025-03-26 16:33:18,441 - INFO - Reading file: ../data/raw/raw_reviews_1650-1675.csv
+2025-03-26 16:33:18,443 - INFO - Reading file: ../data/raw/raw_reviews_1300-1325.csv
+2025-03-26 16:33:18,446 - INFO - Reading file: ../data/raw/raw_reviews_800-825.csv
+2025-03-26 16:33:18,449 - INFO - Reading file: ../data/raw/raw_reviews_3200-3225.csv
+2025-03-26 16:33:18,451 - INFO - Reading file: ../data/raw/raw_reviews_925-950.csv
+2025-03-26 16:33:18,453 - INFO - Reading file: ../data/raw/raw_reviews_1325-1350.csv
+2025-03-26 16:33:18,455 - INFO - Reading file: ../data/raw/raw_reviews_1850-1875.csv
+2025-03-26 16:33:18,457 - INFO - Reading file: ../data/raw/raw_reviews_3225-3250.csv
+2025-03-26 16:33:18,460 - INFO - Reading file: ../data/raw/raw_reviews_1425-1450.csv
+2025-03-26 16:33:18,462 - INFO - Reading file: ../data/raw/raw_reviews_1400-1425.csv
+2025-03-26 16:33:18,464 - INFO - Reading file: ../data/raw/raw_reviews_1200-1225.csv
+2025-03-26 16:33:18,467 - INFO - Reading file: ../data/raw/raw_reviews_1225-1250.csv
+2025-03-26 16:33:18,469 - INFO - Reading file: ../data/raw/raw_reviews_1575-1600.csv
+2025-03-26 16:33:18,471 - INFO - Reading file: ../data/raw/raw_reviews_1950-1975.csv
+2025-03-26 16:33:18,473 - INFO - Reading file: ../data/raw/raw_reviews_975-1000.csv
+2025-03-26 16:33:18,475 - INFO - Reading file: ../data/raw/raw_reviews_1525-1550.csv
+2025-03-26 16:33:18,478 - INFO - Reading file: ../data/raw/raw_reviews_775-800.csv
+2025-03-26 16:33:18,480 - INFO - Reading file: ../data/raw/raw_reviews_1500-1525.csv
+2025-03-26 16:33:18,483 - INFO - Reading file: ../data/raw/raw_reviews_1050-1075.csv
+2025-03-26 16:33:18,485 - INFO - Reading file: ../data/raw/raw_reviews_3150-3175.csv
+2025-03-26 16:33:18,487 - INFO - Reading file: ../data/raw/raw_reviews_2375-2400.csv
+2025-03-26 16:33:18,489 - INFO - Reading file: ../data/raw/raw_reviews_1275-1300.csv
+2025-03-26 16:33:18,491 - INFO - Reading file: ../data/raw/raw_reviews_1750-1775.csv
+2025-03-26 16:33:18,493 - INFO - Reading file: ../data/raw/raw_reviews_2300-2325.csv
+2025-03-26 16:33:18,495 - INFO - Reading file: ../data/raw/raw_reviews_2325-2350.csv
+2025-03-26 16:33:18,497 - INFO - Reading file: ../data/raw/raw_reviews_2850-2875.csv
+2025-03-26 16:33:18,500 - INFO - Reading file: ../data/raw/raw_reviews_2425-2450.csv
+2025-03-26 16:33:18,502 - INFO - Reading file: ../data/raw/raw_reviews_2400-2425.csv
+2025-03-26 16:33:18,504 - INFO - Reading file: ../data/raw/raw_reviews_2150-2175.csv
+2025-03-26 16:33:18,505 - INFO - Reading file: ../data/raw/raw_reviews_2475-2500.csv
+2025-03-26 16:33:18,508 - INFO - Reading file: ../data/raw/raw_reviews_2650-2675.csv
+2025-03-26 16:33:18,510 - INFO - Reading file: ../data/raw/raw_reviews_1975-2000.csv
+2025-03-26 16:33:18,512 - INFO - Reading file: ../data/raw/raw_reviews_1900-1925.csv
+2025-03-26 16:33:18,515 - INFO - Reading file: ../data/raw/raw_reviews_1075-1100.csv
+2025-03-26 16:33:18,517 - INFO - Reading file: ../data/raw/raw_reviews_1250-1275.csv
+2025-03-26 16:33:18,519 - INFO - Reading file: ../data/raw/raw_reviews_1925-1950.csv
+2025-03-26 16:33:18,521 - INFO - Reading file: ../data/raw/raw_reviews_1550-1575.csv
+2025-03-26 16:33:18,523 - INFO - Reading file: ../data/raw/raw_reviews_3125-3150.csv
+2025-03-26 16:33:18,526 - INFO - Reading file: ../data/raw/raw_reviews_1025-1050.csv
+2025-03-26 16:33:18,528 - INFO - Reading file: ../data/raw/raw_reviews_3100-3125.csv
+2025-03-26 16:33:18,531 - INFO - Reading file: ../data/raw/raw_reviews_1000-1025.csv
+2025-03-26 16:33:18,534 - INFO - Reading file: ../data/raw/raw_reviews_1700-1725.csv
+2025-03-26 16:33:18,536 - INFO - Reading file: ../data/raw/raw_reviews_3175-3200.csv
+2025-03-26 16:33:18,538 - INFO - Reading file: ../data/raw/raw_reviews_1725-1750.csv
+2025-03-26 16:33:18,540 - INFO - Reading file: ../data/raw/raw_reviews_2800-2825.csv
+2025-03-26 16:33:18,543 - INFO - Reading file: ../data/raw/raw_reviews_2350-2375.csv
+2025-03-26 16:33:18,545 - INFO - Reading file: ../data/raw/raw_reviews_2825-2850.csv
+2025-03-26 16:33:18,547 - INFO - Reading file: ../data/raw/raw_reviews_2450-2475.csv
+2025-03-26 16:33:18,549 - INFO - Reading file: ../data/raw/raw_reviews_2675-2700.csv
+2025-03-26 16:33:18,552 - INFO - Reading file: ../data/raw/raw_reviews_2125-2150.csv
+2025-03-26 16:33:18,554 - INFO - Reading file: ../data/raw/raw_reviews_2100-2125.csv
+2025-03-26 16:33:18,556 - INFO - Reading file: ../data/raw/raw_reviews_2875-2900.csv
+2025-03-26 16:33:18,558 - INFO - Reading file: ../data/raw/raw_reviews_2600-2625.csv
+2025-03-26 16:33:18,561 - INFO - Reading file: ../data/raw/raw_reviews_2625-2650.csv
+2025-03-26 16:33:18,564 - INFO - Reading file: ../data/raw/raw_reviews_2175-2200.csv
+2025-03-26 16:33:18,566 - INFO - Reading file: ../data/raw/raw_reviews_2775-2800.csv
+2025-03-26 16:33:18,572 - INFO - Concatenated all files into a single DataFrame.
+2025-03-26 16:33:18,580 - INFO - Initial DataFrame info:
+None
+2025-03-26 16:33:18,590 - INFO - Removed duplicates. New DataFrame info:
+None
+2025-03-26 16:33:18,603 - INFO - Removed rows with missing values. Final DataFrame info:
+None
+2025-03-26 16:33:18,795 - INFO - Saved cleaned DataFrame to: ../data/raw/raw_reviews_0.csv
+2025-03-26 16:33:18,796 - ERROR - Error moving files to archive: name 'shutil' is not defined
+2025-03-26 16:35:58,440 - INFO - Processing page 1
+2025-03-26 16:35:58,890 - INFO - Processing page 2
+2025-03-26 16:35:59,449 - INFO - Saved reviews data to ../data/raw/raw_reviews_1-2.csv
+2025-03-26 16:37:20,369 - INFO - Found 103 files to process.
+2025-03-26 16:37:20,370 - INFO - Created/verified '.archive' folder at: ../data/raw/.archive
+2025-03-26 16:37:20,371 - INFO - Reading file: ../data/raw/raw_reviews_850-875.csv
+2025-03-26 16:37:20,379 - INFO - Reading file: ../data/raw/raw_reviews_2025-2050.csv
+2025-03-26 16:37:20,385 - INFO - Reading file: ../data/raw/raw_reviews_2000-2025.csv
+2025-03-26 16:37:20,391 - INFO - Reading file: ../data/raw/raw_reviews_2700-2725.csv
+2025-03-26 16:37:20,396 - INFO - Reading file: ../data/raw/raw_reviews_2725-2750.csv
+2025-03-26 16:37:20,401 - INFO - Reading file: ../data/raw/raw_reviews_2900-2925.csv
+2025-03-26 16:37:20,405 - INFO - Reading file: ../data/raw/raw_reviews_950-975.csv
+2025-03-26 16:37:20,408 - INFO - Reading file: ../data/raw/raw_reviews_2075-2100.csv
+2025-03-26 16:37:20,411 - INFO - Reading file: ../data/raw/raw_reviews_2250-2275.csv
+2025-03-26 16:37:20,414 - INFO - Reading file: ../data/raw/raw_reviews_2925-2950.csv
+2025-03-26 16:37:20,419 - INFO - Reading file: ../data/raw/raw_reviews_2550-2575.csv
+2025-03-26 16:37:20,421 - INFO - Reading file: ../data/raw/raw_reviews_1125-1150.csv
+2025-03-26 16:37:20,424 - INFO - Reading file: ../data/raw/raw_reviews_3025-3050.csv
+2025-03-26 16:37:20,427 - INFO - Reading file: ../data/raw/raw_reviews_1100-1125.csv
+2025-03-26 16:37:20,429 - INFO - Reading file: ../data/raw/raw_reviews_1875-1900.csv
+2025-03-26 16:37:20,433 - INFO - Reading file: ../data/raw/raw_reviews_3000-3025.csv
+2025-03-26 16:37:20,436 - INFO - Reading file: ../data/raw/raw_reviews_1600-1625.csv
+2025-03-26 16:37:20,438 - INFO - Reading file: ../data/raw/raw_reviews_1625-1650.csv
+2025-03-26 16:37:20,441 - INFO - Reading file: ../data/raw/raw_reviews_1175-1200.csv
+2025-03-26 16:37:20,443 - INFO - Reading file: ../data/raw/raw_reviews_750-775.csv
+2025-03-26 16:37:20,446 - INFO - Reading file: ../data/raw/raw_reviews_1775-1800.csv
+2025-03-26 16:37:20,448 - INFO - Reading file: ../data/raw/raw_reviews_1800-1825.csv
+2025-03-26 16:37:20,451 - INFO - Reading file: ../data/raw/raw_reviews_3075-3100.csv
+2025-03-26 16:37:20,453 - INFO - Reading file: ../data/raw/raw_reviews_1350-1375.csv
+2025-03-26 16:37:20,455 - INFO - Reading file: ../data/raw/raw_reviews_1825-1850.csv
+2025-03-26 16:37:20,457 - INFO - Reading file: ../data/raw/raw_reviews_1450-1475.csv
+2025-03-26 16:37:20,460 - INFO - Reading file: ../data/raw/raw_reviews_1675-1700.csv
+2025-03-26 16:37:20,462 - INFO - Reading file: ../data/raw/raw_reviews_650-675.csv
+2025-03-26 16:37:20,465 - INFO - Reading file: ../data/raw/raw_reviews_2050-2075.csv
+2025-03-26 16:37:20,467 - INFO - Reading file: ../data/raw/raw_reviews_875-900.csv
+2025-03-26 16:37:20,469 - INFO - Reading file: ../data/raw/raw_reviews_1375-1400.csv
+2025-03-26 16:37:20,471 - INFO - Reading file: ../data/raw/raw_reviews_2275-2300.csv
+2025-03-26 16:37:20,473 - INFO - Reading file: ../data/raw/raw_reviews_725-750.csv
+2025-03-26 16:37:20,476 - INFO - Reading file: ../data/raw/raw_reviews_2750-2775.csv
+2025-03-26 16:37:20,478 - INFO - Reading file: ../data/raw/raw_reviews_2200-2225.csv
+2025-03-26 16:37:20,481 - INFO - Reading file: ../data/raw/raw_reviews_2225-2250.csv
+2025-03-26 16:37:20,483 - INFO - Reading file: ../data/raw/raw_reviews_2575-2600.csv
+2025-03-26 16:37:20,486 - INFO - Reading file: ../data/raw/raw_reviews_2950-2975.csv
+2025-03-26 16:37:20,488 - INFO - Reading file: ../data/raw/raw_reviews_2975-3000.csv
+2025-03-26 16:37:20,491 - INFO - Reading file: ../data/raw/raw_reviews_2525-2550.csv
+2025-03-26 16:37:20,493 - INFO - Reading file: ../data/raw/raw_reviews_700-725.csv
+2025-03-26 16:37:20,495 - INFO - Reading file: ../data/raw/raw_reviews_2500-2525.csv
+2025-03-26 16:37:20,499 - INFO - Reading file: ../data/raw/raw_reviews_3050-3075.csv
+2025-03-26 16:37:20,501 - INFO - Reading file: ../data/raw/raw_reviews_900-925.csv
+2025-03-26 16:37:20,503 - INFO - Reading file: ../data/raw/raw_reviews_1150-1175.csv
+2025-03-26 16:37:20,505 - INFO - Reading file: ../data/raw/raw_reviews_825-850.csv
+2025-03-26 16:37:20,507 - INFO - Reading file: ../data/raw/raw_reviews_1475-1500.csv
+2025-03-26 16:37:20,510 - INFO - Reading file: ../data/raw/raw_reviews_1650-1675.csv
+2025-03-26 16:37:20,512 - INFO - Reading file: ../data/raw/raw_reviews_1300-1325.csv
+2025-03-26 16:37:20,515 - INFO - Reading file: ../data/raw/raw_reviews_800-825.csv
+2025-03-26 16:37:20,518 - INFO - Reading file: ../data/raw/raw_reviews_3200-3225.csv
+2025-03-26 16:37:20,520 - INFO - Reading file: ../data/raw/raw_reviews_925-950.csv
+2025-03-26 16:37:20,522 - INFO - Reading file: ../data/raw/raw_reviews_1325-1350.csv
+2025-03-26 16:37:20,524 - INFO - Reading file: ../data/raw/raw_reviews_1850-1875.csv
+2025-03-26 16:37:20,526 - INFO - Reading file: ../data/raw/raw_reviews_3225-3250.csv
+2025-03-26 16:37:20,528 - INFO - Reading file: ../data/raw/raw_reviews_1425-1450.csv
+2025-03-26 16:37:20,531 - INFO - Reading file: ../data/raw/raw_reviews_1400-1425.csv
+2025-03-26 16:37:20,534 - INFO - Reading file: ../data/raw/raw_reviews_1200-1225.csv
+2025-03-26 16:37:20,536 - INFO - Reading file: ../data/raw/raw_reviews_1225-1250.csv
+2025-03-26 16:37:20,538 - INFO - Reading file: ../data/raw/raw_reviews_1575-1600.csv
+2025-03-26 16:37:20,540 - INFO - Reading file: ../data/raw/raw_reviews_1950-1975.csv
+2025-03-26 16:37:20,542 - INFO - Reading file: ../data/raw/raw_reviews_975-1000.csv
+2025-03-26 16:37:20,544 - INFO - Reading file: ../data/raw/raw_reviews_1525-1550.csv
+2025-03-26 16:37:20,546 - INFO - Reading file: ../data/raw/raw_reviews_775-800.csv
+2025-03-26 16:37:20,549 - INFO - Reading file: ../data/raw/raw_reviews_1500-1525.csv
+2025-03-26 16:37:20,552 - INFO - Reading file: ../data/raw/raw_reviews_1050-1075.csv
+2025-03-26 16:37:20,554 - INFO - Reading file: ../data/raw/raw_reviews_3150-3175.csv
+2025-03-26 16:37:20,556 - INFO - Reading file: ../data/raw/raw_reviews_2375-2400.csv
+2025-03-26 16:37:20,558 - INFO - Reading file: ../data/raw/raw_reviews_1275-1300.csv
+2025-03-26 16:37:20,560 - INFO - Reading file: ../data/raw/raw_reviews_1750-1775.csv
+2025-03-26 16:37:20,562 - INFO - Reading file: ../data/raw/raw_reviews_2300-2325.csv
+2025-03-26 16:37:20,564 - INFO - Reading file: ../data/raw/raw_reviews_2325-2350.csv
+2025-03-26 16:37:20,567 - INFO - Reading file: ../data/raw/raw_reviews_2850-2875.csv
+2025-03-26 16:37:20,569 - INFO - Reading file: ../data/raw/raw_reviews_2425-2450.csv
+2025-03-26 16:37:20,572 - INFO - Reading file: ../data/raw/raw_reviews_2400-2425.csv
+2025-03-26 16:37:20,574 - INFO - Reading file: ../data/raw/raw_reviews_2150-2175.csv
+2025-03-26 16:37:20,575 - INFO - Reading file: ../data/raw/raw_reviews_2475-2500.csv
+2025-03-26 16:37:20,577 - INFO - Reading file: ../data/raw/raw_reviews_2650-2675.csv
+2025-03-26 16:37:20,580 - INFO - Reading file: ../data/raw/raw_reviews_1975-2000.csv
+2025-03-26 16:37:20,582 - INFO - Reading file: ../data/raw/raw_reviews_1900-1925.csv
+2025-03-26 16:37:20,585 - INFO - Reading file: ../data/raw/raw_reviews_1075-1100.csv
+2025-03-26 16:37:20,587 - INFO - Reading file: ../data/raw/raw_reviews_1250-1275.csv
+2025-03-26 16:37:20,589 - INFO - Reading file: ../data/raw/raw_reviews_1925-1950.csv
+2025-03-26 16:37:20,591 - INFO - Reading file: ../data/raw/raw_reviews_1550-1575.csv
+2025-03-26 16:37:20,593 - INFO - Reading file: ../data/raw/raw_reviews_3125-3150.csv
+2025-03-26 16:37:20,596 - INFO - Reading file: ../data/raw/raw_reviews_1025-1050.csv
+2025-03-26 16:37:20,599 - INFO - Reading file: ../data/raw/raw_reviews_3100-3125.csv
+2025-03-26 16:37:20,601 - INFO - Reading file: ../data/raw/raw_reviews_1000-1025.csv
+2025-03-26 16:37:20,603 - INFO - Reading file: ../data/raw/raw_reviews_1700-1725.csv
+2025-03-26 16:37:20,605 - INFO - Reading file: ../data/raw/raw_reviews_3175-3200.csv
+2025-03-26 16:37:20,607 - INFO - Reading file: ../data/raw/raw_reviews_1725-1750.csv
+2025-03-26 16:37:20,609 - INFO - Reading file: ../data/raw/raw_reviews_2800-2825.csv
+2025-03-26 16:37:20,611 - INFO - Reading file: ../data/raw/raw_reviews_2350-2375.csv
+2025-03-26 16:37:20,614 - INFO - Reading file: ../data/raw/raw_reviews_2825-2850.csv
+2025-03-26 16:37:20,616 - INFO - Reading file: ../data/raw/raw_reviews_2450-2475.csv
+2025-03-26 16:37:20,618 - INFO - Reading file: ../data/raw/raw_reviews_2675-2700.csv
+2025-03-26 16:37:20,620 - INFO - Reading file: ../data/raw/raw_reviews_2125-2150.csv
+2025-03-26 16:37:20,623 - INFO - Reading file: ../data/raw/raw_reviews_2100-2125.csv
+2025-03-26 16:37:20,625 - INFO - Reading file: ../data/raw/raw_reviews_2875-2900.csv
+2025-03-26 16:37:20,627 - INFO - Reading file: ../data/raw/raw_reviews_2600-2625.csv
+2025-03-26 16:37:20,630 - INFO - Reading file: ../data/raw/raw_reviews_2625-2650.csv
+2025-03-26 16:37:20,633 - INFO - Reading file: ../data/raw/raw_reviews_2175-2200.csv
+2025-03-26 16:37:20,635 - INFO - Reading file: ../data/raw/raw_reviews_2775-2800.csv
+2025-03-26 16:37:20,641 - INFO - Concatenated all files into a single DataFrame.
+2025-03-26 16:37:20,648 - INFO - Initial DataFrame info:
+None
+2025-03-26 16:37:20,659 - INFO - Removed duplicates. New DataFrame info:
+None
+2025-03-26 16:37:20,672 - INFO - Removed rows with missing values. Final DataFrame info:
+None
+2025-03-26 16:37:20,868 - INFO - Saved cleaned DataFrame to: ../data/raw/raw_reviews_0.csv
+2025-03-26 16:37:20,868 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_850-875.csv
+2025-03-26 16:37:20,869 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2025-2050.csv
+2025-03-26 16:37:20,869 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2000-2025.csv
+2025-03-26 16:37:20,869 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2700-2725.csv
+2025-03-26 16:37:20,870 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2725-2750.csv
+2025-03-26 16:37:20,870 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2900-2925.csv
+2025-03-26 16:37:20,870 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_950-975.csv
+2025-03-26 16:37:20,871 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2075-2100.csv
+2025-03-26 16:37:20,871 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2250-2275.csv
+2025-03-26 16:37:20,871 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2925-2950.csv
+2025-03-26 16:37:20,871 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2550-2575.csv
+2025-03-26 16:37:20,872 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1125-1150.csv
+2025-03-26 16:37:20,872 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3025-3050.csv
+2025-03-26 16:37:20,872 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1100-1125.csv
+2025-03-26 16:37:20,872 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1875-1900.csv
+2025-03-26 16:37:20,873 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3000-3025.csv
+2025-03-26 16:37:20,873 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1600-1625.csv
+2025-03-26 16:37:20,873 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1625-1650.csv
+2025-03-26 16:37:20,873 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1175-1200.csv
+2025-03-26 16:37:20,874 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_750-775.csv
+2025-03-26 16:37:20,874 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1775-1800.csv
+2025-03-26 16:37:20,874 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1800-1825.csv
+2025-03-26 16:37:20,875 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3075-3100.csv
+2025-03-26 16:37:20,875 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1350-1375.csv
+2025-03-26 16:37:20,875 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1825-1850.csv
+2025-03-26 16:37:20,875 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1450-1475.csv
+2025-03-26 16:37:20,875 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1675-1700.csv
+2025-03-26 16:37:20,876 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_650-675.csv
+2025-03-26 16:37:20,876 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2050-2075.csv
+2025-03-26 16:37:20,876 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_875-900.csv
+2025-03-26 16:37:20,877 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1375-1400.csv
+2025-03-26 16:37:20,877 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2275-2300.csv
+2025-03-26 16:37:20,877 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_725-750.csv
+2025-03-26 16:37:20,877 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2750-2775.csv
+2025-03-26 16:37:20,878 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2200-2225.csv
+2025-03-26 16:37:20,878 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2225-2250.csv
+2025-03-26 16:37:20,878 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2575-2600.csv
+2025-03-26 16:37:20,878 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2950-2975.csv
+2025-03-26 16:37:20,878 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2975-3000.csv
+2025-03-26 16:37:20,879 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2525-2550.csv
+2025-03-26 16:37:20,879 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_700-725.csv
+2025-03-26 16:37:20,880 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2500-2525.csv
+2025-03-26 16:37:20,881 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3050-3075.csv
+2025-03-26 16:37:20,882 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_900-925.csv
+2025-03-26 16:37:20,882 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1150-1175.csv
+2025-03-26 16:37:20,883 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_825-850.csv
+2025-03-26 16:37:20,883 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1475-1500.csv
+2025-03-26 16:37:20,883 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1650-1675.csv
+2025-03-26 16:37:20,883 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1300-1325.csv
+2025-03-26 16:37:20,884 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_800-825.csv
+2025-03-26 16:37:20,884 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3200-3225.csv
+2025-03-26 16:37:20,884 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_925-950.csv
+2025-03-26 16:37:20,884 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1325-1350.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1850-1875.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3225-3250.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1425-1450.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1400-1425.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1200-1225.csv
+2025-03-26 16:37:20,885 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1225-1250.csv
+2025-03-26 16:37:20,886 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1575-1600.csv
+2025-03-26 16:37:20,886 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1950-1975.csv
+2025-03-26 16:37:20,886 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_975-1000.csv
+2025-03-26 16:37:20,886 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1525-1550.csv
+2025-03-26 16:37:20,887 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_775-800.csv
+2025-03-26 16:37:20,887 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1500-1525.csv
+2025-03-26 16:37:20,887 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1050-1075.csv
+2025-03-26 16:37:20,887 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3150-3175.csv
+2025-03-26 16:37:20,888 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2375-2400.csv
+2025-03-26 16:37:20,888 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1275-1300.csv
+2025-03-26 16:37:20,888 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1750-1775.csv
+2025-03-26 16:37:20,888 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2300-2325.csv
+2025-03-26 16:37:20,888 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2325-2350.csv
+2025-03-26 16:37:20,889 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2850-2875.csv
+2025-03-26 16:37:20,889 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2425-2450.csv
+2025-03-26 16:37:20,889 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2400-2425.csv
+2025-03-26 16:37:20,889 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2150-2175.csv
+2025-03-26 16:37:20,890 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2475-2500.csv
+2025-03-26 16:37:20,890 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2650-2675.csv
+2025-03-26 16:37:20,890 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1975-2000.csv
+2025-03-26 16:37:20,890 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1900-1925.csv
+2025-03-26 16:37:20,891 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1075-1100.csv
+2025-03-26 16:37:20,891 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1250-1275.csv
+2025-03-26 16:37:20,891 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1925-1950.csv
+2025-03-26 16:37:20,891 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1550-1575.csv
+2025-03-26 16:37:20,891 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3125-3150.csv
+2025-03-26 16:37:20,892 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1025-1050.csv
+2025-03-26 16:37:20,892 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3100-3125.csv
+2025-03-26 16:37:20,892 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1000-1025.csv
+2025-03-26 16:37:20,892 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1700-1725.csv
+2025-03-26 16:37:20,892 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3175-3200.csv
+2025-03-26 16:37:20,893 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1725-1750.csv
+2025-03-26 16:37:20,893 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2800-2825.csv
+2025-03-26 16:37:20,893 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2350-2375.csv
+2025-03-26 16:37:20,893 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2825-2850.csv
+2025-03-26 16:37:20,893 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2450-2475.csv
+2025-03-26 16:37:20,894 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2675-2700.csv
+2025-03-26 16:37:20,894 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2125-2150.csv
+2025-03-26 16:37:20,894 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2100-2125.csv
+2025-03-26 16:37:20,894 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2875-2900.csv
+2025-03-26 16:37:20,894 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2600-2625.csv
+2025-03-26 16:37:20,895 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2625-2650.csv
+2025-03-26 16:37:20,895 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2175-2200.csv
+2025-03-26 16:37:20,895 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2775-2800.csv
+2025-03-26 16:43:16,664 - INFO - Found 1 files to process.
+2025-03-26 16:43:16,666 - INFO - Created/verified '.archive' folder at: ../data/raw/.archive
+2025-03-26 16:43:16,667 - INFO - Reading file: ../data/raw/raw_reviews_0.csv
+2025-03-26 16:43:16,824 - INFO - Concatenated all files into a single DataFrame.
+2025-03-26 16:43:16,830 - INFO - Initial DataFrame info:
+None
+2025-03-26 16:43:16,839 - INFO - Removed duplicates. New DataFrame info:
+None
+2025-03-26 16:43:16,871 - INFO - Removed rows with missing values. Final DataFrame info:
+None
+2025-03-26 16:43:17,062 - INFO - Saved cleaned DataFrame to: ../data/raw/raw_reviews_0.csv
+2025-03-26 16:43:17,063 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_0.csv
+2025-03-26 17:13:42,476 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 17:13:42,640 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 17:13:42,640 - INFO - Standardizing date formats...
+2025-03-26 17:13:42,743 - ERROR - Error standardizing date formats: 'createdAtDatetime'
+2025-03-26 17:17:06,179 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 17:17:06,336 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 17:17:06,337 - INFO - Standardizing date formats...
+2025-03-26 17:17:06,682 - INFO - Date formats standardized successfully.
+2025-03-26 17:17:06,682 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 17:17:06,701 - INFO - Temporal features extracted successfully.
+2025-03-26 17:17:06,701 - INFO - Removing rows with missing values...
+2025-03-26 17:17:06,715 - INFO - Removed 0 rows with missing values. Remaining rows: 51018
+2025-03-26 17:17:06,715 - INFO - Removing rows with invalid ratings...
+2025-03-26 17:17:06,718 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 51018
+2025-03-26 17:17:06,719 - INFO - Cleaning review text...
+2025-03-26 17:17:11,073 - INFO - Review text cleaned successfully.
+2025-03-26 17:17:11,074 - INFO - Removing short reviews...
+2025-03-26 17:17:11,083 - INFO - Removed 114 short reviews. Remaining rows: 50904
+2025-03-26 17:17:11,084 - INFO - Saving cleaned data to CSV...
+2025-03-26 17:17:11,261 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326171711.csv
+2025-03-26 17:17:55,644 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 17:17:55,816 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 17:17:55,816 - INFO - Standardizing date formats...
+2025-03-26 17:17:56,135 - INFO - Date formats standardized successfully.
+2025-03-26 17:17:56,135 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 17:17:56,154 - INFO - Temporal features extracted successfully.
+2025-03-26 17:17:56,154 - INFO - Removing rows with missing values...
+2025-03-26 17:17:56,168 - INFO - Removed 0 rows with missing values. Remaining rows: 51018
+2025-03-26 17:17:56,168 - INFO - Removing rows with invalid ratings...
+2025-03-26 17:17:56,171 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 51018
+2025-03-26 17:17:56,172 - INFO - Cleaning review text...
+2025-03-26 17:18:00,582 - INFO - Review text cleaned successfully.
+2025-03-26 17:18:00,582 - INFO - Removing short reviews...
+2025-03-26 17:18:00,591 - INFO - Removed 114 short reviews. Remaining rows: 50904
+2025-03-26 17:18:00,591 - INFO - Saving cleaned data to CSV...
+2025-03-26 17:18:00,762 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326171800.csv
+2025-03-26 18:29:57,340 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:29:57,505 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 18:29:57,505 - INFO - Standardizing date formats...
+2025-03-26 18:29:57,827 - INFO - Date formats standardized successfully.
+2025-03-26 18:29:57,827 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 18:29:57,846 - INFO - Temporal features extracted successfully.
+2025-03-26 18:29:57,846 - INFO - Removing rows with missing values...
+2025-03-26 18:29:57,859 - INFO - Removed 0 rows with missing values. Remaining rows: 51018
+2025-03-26 18:29:57,860 - INFO - Removing rows with invalid ratings...
+2025-03-26 18:29:57,863 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 51018
+2025-03-26 18:29:57,863 - INFO - Cleaning review text...
+2025-03-26 18:30:02,295 - INFO - Review text cleaned successfully.
+2025-03-26 18:30:02,295 - INFO - Removing short reviews...
+2025-03-26 18:30:02,305 - INFO - Removed 114 short reviews. Remaining rows: 50904
+2025-03-26 18:30:02,305 - INFO - Saving cleaned data to CSV...
+2025-03-26 18:30:02,481 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326183002.csv
+2025-03-26 18:30:02,743 - INFO - Directories ensured: ../data/full, ../data/archive, ../parameters
+2025-03-26 18:30:02,744 - INFO - No existing file found at ../data/full/full_reviews.csv, initializing empty DataFrame
+2025-03-26 18:30:02,775 - INFO - Original records: 0
+2025-03-26 18:30:02,776 - INFO - Updated records: 50904
+2025-03-26 18:30:02,776 - INFO - New records added: 50904
+2025-03-26 18:30:02,777 - INFO - Wrote '1' to ../parameters/new_reviews.txt
+2025-03-26 18:30:02,777 - INFO - Percentage increase in data: 0.00%
+2025-03-26 18:30:02,979 - INFO - Updated data saved to ../data/full/full_reviews.csv
+2025-03-26 18:30:02,979 - INFO - Archived cleaned review file to: ../data/archive/cleaned_reviews_20250326183002.csv
+2025-03-26 18:40:50,956 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:40:51,139 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 18:40:51,139 - INFO - Standardizing date formats...
+2025-03-26 18:40:51,462 - INFO - Date formats standardized successfully.
+2025-03-26 18:40:51,463 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 18:40:51,482 - INFO - Temporal features extracted successfully.
+2025-03-26 18:40:51,482 - INFO - Removing rows with missing values...
+2025-03-26 18:40:51,496 - INFO - Removed 0 rows with missing values. Remaining rows: 51018
+2025-03-26 18:40:51,497 - INFO - Removing rows with invalid ratings...
+2025-03-26 18:40:51,500 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 51018
+2025-03-26 18:40:51,500 - INFO - Cleaning review text...
+2025-03-26 18:40:55,882 - INFO - Review text cleaned successfully.
+2025-03-26 18:40:55,883 - INFO - Removing short reviews...
+2025-03-26 18:40:55,892 - INFO - Removed 114 short reviews. Remaining rows: 50904
+2025-03-26 18:40:55,892 - INFO - Saving cleaned data to CSV...
+2025-03-26 18:40:56,066 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326184055.csv
+2025-03-26 18:40:56,326 - INFO - Directories ensured: ../data/full, ../data/archive, ../parameters
+2025-03-26 18:40:56,326 - INFO - No existing file found at ../data/full/full_reviews.csv, initializing empty DataFrame
+2025-03-26 18:40:56,358 - INFO - Original records: 0
+2025-03-26 18:40:56,358 - INFO - Updated records: 50904
+2025-03-26 18:40:56,358 - INFO - New records added: 50904
+2025-03-26 18:40:56,360 - INFO - Wrote '1' to ../parameters/new_reviews.txt
+2025-03-26 18:40:56,360 - INFO - Percentage increase in data: 0.00%
+2025-03-26 18:40:56,541 - INFO - Updated data saved to ../data/full/full_reviews.csv
+2025-03-26 18:40:56,541 - INFO - Archived cleaned review file to: ../data/archive/cleaned_reviews_20250326184055.csv
+2025-03-26 18:43:19,578 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:43:19,751 - INFO - Successfully loaded 51018 rows of data.
+2025-03-26 18:43:19,751 - INFO - Standardizing date formats...
+2025-03-26 18:43:20,070 - INFO - Date formats standardized successfully.
+2025-03-26 18:43:20,070 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 18:43:20,089 - INFO - Temporal features extracted successfully.
+2025-03-26 18:43:20,089 - INFO - Removing rows with missing values...
+2025-03-26 18:43:20,102 - INFO - Removed 0 rows with missing values. Remaining rows: 51018
+2025-03-26 18:43:20,103 - INFO - Removing rows with invalid ratings...
+2025-03-26 18:43:20,106 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 51018
+2025-03-26 18:43:20,106 - INFO - Cleaning review text...
+2025-03-26 18:43:24,540 - INFO - Review text cleaned successfully.
+2025-03-26 18:43:24,541 - INFO - Removing short reviews...
+2025-03-26 18:43:24,550 - INFO - Removed 114 short reviews. Remaining rows: 50904
+2025-03-26 18:43:24,550 - INFO - Saving cleaned data to CSV...
+2025-03-26 18:43:24,724 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326184324.csv
+2025-03-26 18:43:24,986 - INFO - Directories ensured: ../data/full, ../data/archive, ../parameters
+2025-03-26 18:43:24,987 - INFO - No existing file found at ../data/full/full_reviews.csv, initializing empty DataFrame
+2025-03-26 18:43:25,018 - INFO - Original records: 0
+2025-03-26 18:43:25,018 - INFO - Updated records: 50904
+2025-03-26 18:43:25,019 - INFO - New records added: 50904
+2025-03-26 18:43:25,020 - INFO - Wrote '1' to ../parameters/new_reviews.txt
+2025-03-26 18:43:25,020 - INFO - Percentage increase in data: 100.00%
+2025-03-26 18:43:25,194 - INFO - Updated data saved to ../data/full/full_reviews.csv
+2025-03-26 18:43:25,194 - INFO - Archived cleaned review file to: ../data/archive/cleaned_reviews_20250326184324.csv
+2025-03-26 18:47:34,027 - INFO - Processing page 1
+2025-03-26 18:47:35,094 - INFO - Processing page 2
+2025-03-26 18:47:36,139 - INFO - Saved reviews data to ../data/raw/raw_reviews_1-2.csv
+2025-03-26 18:47:59,107 - INFO - Found 2 files to process.
+2025-03-26 18:47:59,108 - INFO - Created/verified '.archive' folder at: ../data/raw/.archive
+2025-03-26 18:47:59,109 - INFO - Reading file: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:47:59,278 - INFO - Reading file: ../data/raw/raw_reviews_1-2.csv
+2025-03-26 18:47:59,281 - INFO - Concatenated all files into a single DataFrame.
+2025-03-26 18:47:59,287 - INFO - Initial DataFrame info:
+None
+2025-03-26 18:47:59,301 - INFO - Removed duplicates. New DataFrame info:
+None
+2025-03-26 18:47:59,314 - INFO - Removed rows with missing values. Final DataFrame info:
+None
+2025-03-26 18:47:59,503 - INFO - Saved cleaned DataFrame to: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:47:59,503 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_0.csv
+2025-03-26 18:47:59,504 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1-2.csv
+2025-03-26 18:51:53,962 - INFO - Found 102 files to process.
+2025-03-26 18:51:53,963 - INFO - Created/verified '.archive' folder at: ../data/raw/.archive
+2025-03-26 18:51:53,965 - INFO - Reading file: ../data/raw/raw_reviews_850-875.csv
+2025-03-26 18:51:53,973 - INFO - Reading file: ../data/raw/raw_reviews_2025-2050.csv
+2025-03-26 18:51:53,978 - INFO - Reading file: ../data/raw/raw_reviews_2000-2025.csv
+2025-03-26 18:51:53,981 - INFO - Reading file: ../data/raw/raw_reviews_2700-2725.csv
+2025-03-26 18:51:53,987 - INFO - Reading file: ../data/raw/raw_reviews_2725-2750.csv
+2025-03-26 18:51:53,991 - INFO - Reading file: ../data/raw/raw_reviews_2900-2925.csv
+2025-03-26 18:51:53,996 - INFO - Reading file: ../data/raw/raw_reviews_950-975.csv
+2025-03-26 18:51:53,998 - INFO - Reading file: ../data/raw/raw_reviews_2075-2100.csv
+2025-03-26 18:51:54,002 - INFO - Reading file: ../data/raw/raw_reviews_2250-2275.csv
+2025-03-26 18:51:54,005 - INFO - Reading file: ../data/raw/raw_reviews_2925-2950.csv
+2025-03-26 18:51:54,009 - INFO - Reading file: ../data/raw/raw_reviews_2550-2575.csv
+2025-03-26 18:51:54,012 - INFO - Reading file: ../data/raw/raw_reviews_1125-1150.csv
+2025-03-26 18:51:54,016 - INFO - Reading file: ../data/raw/raw_reviews_3025-3050.csv
+2025-03-26 18:51:54,019 - INFO - Reading file: ../data/raw/raw_reviews_1100-1125.csv
+2025-03-26 18:51:54,022 - INFO - Reading file: ../data/raw/raw_reviews_1875-1900.csv
+2025-03-26 18:51:54,024 - INFO - Reading file: ../data/raw/raw_reviews_3000-3025.csv
+2025-03-26 18:51:54,028 - INFO - Reading file: ../data/raw/raw_reviews_1600-1625.csv
+2025-03-26 18:51:54,032 - INFO - Reading file: ../data/raw/raw_reviews_1625-1650.csv
+2025-03-26 18:51:54,034 - INFO - Reading file: ../data/raw/raw_reviews_1175-1200.csv
+2025-03-26 18:51:54,037 - INFO - Reading file: ../data/raw/raw_reviews_750-775.csv
+2025-03-26 18:51:54,039 - INFO - Reading file: ../data/raw/raw_reviews_1775-1800.csv
+2025-03-26 18:51:54,042 - INFO - Reading file: ../data/raw/raw_reviews_1800-1825.csv
+2025-03-26 18:51:54,044 - INFO - Reading file: ../data/raw/raw_reviews_3075-3100.csv
+2025-03-26 18:51:54,047 - INFO - Reading file: ../data/raw/raw_reviews_1350-1375.csv
+2025-03-26 18:51:54,049 - INFO - Reading file: ../data/raw/raw_reviews_1825-1850.csv
+2025-03-26 18:51:54,052 - INFO - Reading file: ../data/raw/raw_reviews_1450-1475.csv
+2025-03-26 18:51:54,054 - INFO - Reading file: ../data/raw/raw_reviews_1675-1700.csv
+2025-03-26 18:51:54,057 - INFO - Reading file: ../data/raw/raw_reviews_2050-2075.csv
+2025-03-26 18:51:54,066 - INFO - Reading file: ../data/raw/raw_reviews_875-900.csv
+2025-03-26 18:51:54,078 - INFO - Reading file: ../data/raw/raw_reviews_1375-1400.csv
+2025-03-26 18:51:54,083 - INFO - Reading file: ../data/raw/raw_reviews_2275-2300.csv
+2025-03-26 18:51:54,090 - INFO - Reading file: ../data/raw/raw_reviews_725-750.csv
+2025-03-26 18:51:54,093 - INFO - Reading file: ../data/raw/raw_reviews_2750-2775.csv
+2025-03-26 18:51:54,096 - INFO - Reading file: ../data/raw/raw_reviews_2200-2225.csv
+2025-03-26 18:51:54,099 - INFO - Reading file: ../data/raw/raw_reviews_2225-2250.csv
+2025-03-26 18:51:54,101 - INFO - Reading file: ../data/raw/raw_reviews_2575-2600.csv
+2025-03-26 18:51:54,103 - INFO - Reading file: ../data/raw/raw_reviews_2950-2975.csv
+2025-03-26 18:51:54,106 - INFO - Reading file: ../data/raw/raw_reviews_2975-3000.csv
+2025-03-26 18:51:54,109 - INFO - Reading file: ../data/raw/raw_reviews_2525-2550.csv
+2025-03-26 18:51:54,112 - INFO - Reading file: ../data/raw/raw_reviews_700-725.csv
+2025-03-26 18:51:54,115 - INFO - Reading file: ../data/raw/raw_reviews_2500-2525.csv
+2025-03-26 18:51:54,117 - INFO - Reading file: ../data/raw/raw_reviews_3050-3075.csv
+2025-03-26 18:51:54,121 - INFO - Reading file: ../data/raw/raw_reviews_900-925.csv
+2025-03-26 18:51:54,124 - INFO - Reading file: ../data/raw/raw_reviews_1150-1175.csv
+2025-03-26 18:51:54,126 - INFO - Reading file: ../data/raw/raw_reviews_825-850.csv
+2025-03-26 18:51:54,128 - INFO - Reading file: ../data/raw/raw_reviews_1475-1500.csv
+2025-03-26 18:51:54,132 - INFO - Reading file: ../data/raw/raw_reviews_1650-1675.csv
+2025-03-26 18:51:54,134 - INFO - Reading file: ../data/raw/raw_reviews_1300-1325.csv
+2025-03-26 18:51:54,137 - INFO - Reading file: ../data/raw/raw_reviews_800-825.csv
+2025-03-26 18:51:54,140 - INFO - Reading file: ../data/raw/raw_reviews_3200-3225.csv
+2025-03-26 18:51:54,143 - INFO - Reading file: ../data/raw/raw_reviews_925-950.csv
+2025-03-26 18:51:54,146 - INFO - Reading file: ../data/raw/raw_reviews_1325-1350.csv
+2025-03-26 18:51:54,148 - INFO - Reading file: ../data/raw/raw_reviews_1850-1875.csv
+2025-03-26 18:51:54,151 - INFO - Reading file: ../data/raw/raw_reviews_3225-3250.csv
+2025-03-26 18:51:54,153 - INFO - Reading file: ../data/raw/raw_reviews_1425-1450.csv
+2025-03-26 18:51:54,156 - INFO - Reading file: ../data/raw/raw_reviews_1400-1425.csv
+2025-03-26 18:51:54,158 - INFO - Reading file: ../data/raw/raw_reviews_1200-1225.csv
+2025-03-26 18:51:54,161 - INFO - Reading file: ../data/raw/raw_reviews_1225-1250.csv
+2025-03-26 18:51:54,164 - INFO - Reading file: ../data/raw/raw_reviews_1575-1600.csv
+2025-03-26 18:51:54,167 - INFO - Reading file: ../data/raw/raw_reviews_1950-1975.csv
+2025-03-26 18:51:54,169 - INFO - Reading file: ../data/raw/raw_reviews_975-1000.csv
+2025-03-26 18:51:54,171 - INFO - Reading file: ../data/raw/raw_reviews_1525-1550.csv
+2025-03-26 18:51:54,174 - INFO - Reading file: ../data/raw/raw_reviews_775-800.csv
+2025-03-26 18:51:54,177 - INFO - Reading file: ../data/raw/raw_reviews_1500-1525.csv
+2025-03-26 18:51:54,180 - INFO - Reading file: ../data/raw/raw_reviews_1050-1075.csv
+2025-03-26 18:51:54,183 - INFO - Reading file: ../data/raw/raw_reviews_3150-3175.csv
+2025-03-26 18:51:54,185 - INFO - Reading file: ../data/raw/raw_reviews_2375-2400.csv
+2025-03-26 18:51:54,188 - INFO - Reading file: ../data/raw/raw_reviews_1275-1300.csv
+2025-03-26 18:51:54,190 - INFO - Reading file: ../data/raw/raw_reviews_1750-1775.csv
+2025-03-26 18:51:54,192 - INFO - Reading file: ../data/raw/raw_reviews_2300-2325.csv
+2025-03-26 18:51:54,195 - INFO - Reading file: ../data/raw/raw_reviews_2325-2350.csv
+2025-03-26 18:51:54,199 - INFO - Reading file: ../data/raw/raw_reviews_2850-2875.csv
+2025-03-26 18:51:54,202 - INFO - Reading file: ../data/raw/raw_reviews_2425-2450.csv
+2025-03-26 18:51:54,205 - INFO - Reading file: ../data/raw/raw_reviews_2400-2425.csv
+2025-03-26 18:51:54,207 - INFO - Reading file: ../data/raw/raw_reviews_2150-2175.csv
+2025-03-26 18:51:54,209 - INFO - Reading file: ../data/raw/raw_reviews_2475-2500.csv
+2025-03-26 18:51:54,212 - INFO - Reading file: ../data/raw/raw_reviews_2650-2675.csv
+2025-03-26 18:51:54,215 - INFO - Reading file: ../data/raw/raw_reviews_1975-2000.csv
+2025-03-26 18:51:54,217 - INFO - Reading file: ../data/raw/raw_reviews_1900-1925.csv
+2025-03-26 18:51:54,220 - INFO - Reading file: ../data/raw/raw_reviews_1075-1100.csv
+2025-03-26 18:51:54,222 - INFO - Reading file: ../data/raw/raw_reviews_1250-1275.csv
+2025-03-26 18:51:54,226 - INFO - Reading file: ../data/raw/raw_reviews_1925-1950.csv
+2025-03-26 18:51:54,228 - INFO - Reading file: ../data/raw/raw_reviews_1550-1575.csv
+2025-03-26 18:51:54,231 - INFO - Reading file: ../data/raw/raw_reviews_3125-3150.csv
+2025-03-26 18:51:54,234 - INFO - Reading file: ../data/raw/raw_reviews_1025-1050.csv
+2025-03-26 18:51:54,236 - INFO - Reading file: ../data/raw/raw_reviews_3100-3125.csv
+2025-03-26 18:51:54,238 - INFO - Reading file: ../data/raw/raw_reviews_1000-1025.csv
+2025-03-26 18:51:54,241 - INFO - Reading file: ../data/raw/raw_reviews_1700-1725.csv
+2025-03-26 18:51:54,243 - INFO - Reading file: ../data/raw/raw_reviews_3175-3200.csv
+2025-03-26 18:51:54,247 - INFO - Reading file: ../data/raw/raw_reviews_1725-1750.csv
+2025-03-26 18:51:54,249 - INFO - Reading file: ../data/raw/raw_reviews_2800-2825.csv
+2025-03-26 18:51:54,252 - INFO - Reading file: ../data/raw/raw_reviews_2350-2375.csv
+2025-03-26 18:51:54,254 - INFO - Reading file: ../data/raw/raw_reviews_2825-2850.csv
+2025-03-26 18:51:54,256 - INFO - Reading file: ../data/raw/raw_reviews_2450-2475.csv
+2025-03-26 18:51:54,258 - INFO - Reading file: ../data/raw/raw_reviews_2675-2700.csv
+2025-03-26 18:51:54,261 - INFO - Reading file: ../data/raw/raw_reviews_2125-2150.csv
+2025-03-26 18:51:54,264 - INFO - Reading file: ../data/raw/raw_reviews_2100-2125.csv
+2025-03-26 18:51:54,266 - INFO - Reading file: ../data/raw/raw_reviews_2875-2900.csv
+2025-03-26 18:51:54,269 - INFO - Reading file: ../data/raw/raw_reviews_2600-2625.csv
+2025-03-26 18:51:54,271 - INFO - Reading file: ../data/raw/raw_reviews_2625-2650.csv
+2025-03-26 18:51:54,274 - INFO - Reading file: ../data/raw/raw_reviews_2175-2200.csv
+2025-03-26 18:51:54,276 - INFO - Reading file: ../data/raw/raw_reviews_2775-2800.csv
+2025-03-26 18:51:54,284 - INFO - Concatenated all files into a single DataFrame.
+2025-03-26 18:51:54,291 - INFO - Initial DataFrame info:
+None
+2025-03-26 18:51:54,303 - INFO - Removed duplicates. New DataFrame info:
+None
+2025-03-26 18:51:54,316 - INFO - Removed rows with missing values. Final DataFrame info:
+None
+2025-03-26 18:51:54,515 - INFO - Saved cleaned DataFrame to: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:51:54,516 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_850-875.csv
+2025-03-26 18:51:54,516 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2025-2050.csv
+2025-03-26 18:51:54,516 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2000-2025.csv
+2025-03-26 18:51:54,516 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2700-2725.csv
+2025-03-26 18:51:54,517 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2725-2750.csv
+2025-03-26 18:51:54,517 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2900-2925.csv
+2025-03-26 18:51:54,517 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_950-975.csv
+2025-03-26 18:51:54,517 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2075-2100.csv
+2025-03-26 18:51:54,518 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2250-2275.csv
+2025-03-26 18:51:54,518 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2925-2950.csv
+2025-03-26 18:51:54,518 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2550-2575.csv
+2025-03-26 18:51:54,518 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1125-1150.csv
+2025-03-26 18:51:54,519 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3025-3050.csv
+2025-03-26 18:51:54,519 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1100-1125.csv
+2025-03-26 18:51:54,519 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1875-1900.csv
+2025-03-26 18:51:54,519 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3000-3025.csv
+2025-03-26 18:51:54,520 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1600-1625.csv
+2025-03-26 18:51:54,520 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1625-1650.csv
+2025-03-26 18:51:54,520 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1175-1200.csv
+2025-03-26 18:51:54,520 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_750-775.csv
+2025-03-26 18:51:54,521 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1775-1800.csv
+2025-03-26 18:51:54,521 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1800-1825.csv
+2025-03-26 18:51:54,521 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3075-3100.csv
+2025-03-26 18:51:54,521 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1350-1375.csv
+2025-03-26 18:51:54,522 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1825-1850.csv
+2025-03-26 18:51:54,522 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1450-1475.csv
+2025-03-26 18:51:54,522 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1675-1700.csv
+2025-03-26 18:51:54,522 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2050-2075.csv
+2025-03-26 18:51:54,523 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_875-900.csv
+2025-03-26 18:51:54,523 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1375-1400.csv
+2025-03-26 18:51:54,523 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2275-2300.csv
+2025-03-26 18:51:54,523 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_725-750.csv
+2025-03-26 18:51:54,524 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2750-2775.csv
+2025-03-26 18:51:54,524 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2200-2225.csv
+2025-03-26 18:51:54,524 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2225-2250.csv
+2025-03-26 18:51:54,524 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2575-2600.csv
+2025-03-26 18:51:54,525 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2950-2975.csv
+2025-03-26 18:51:54,525 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2975-3000.csv
+2025-03-26 18:51:54,525 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2525-2550.csv
+2025-03-26 18:51:54,525 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_700-725.csv
+2025-03-26 18:51:54,526 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2500-2525.csv
+2025-03-26 18:51:54,526 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3050-3075.csv
+2025-03-26 18:51:54,526 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_900-925.csv
+2025-03-26 18:51:54,526 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1150-1175.csv
+2025-03-26 18:51:54,526 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_825-850.csv
+2025-03-26 18:51:54,527 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1475-1500.csv
+2025-03-26 18:51:54,527 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1650-1675.csv
+2025-03-26 18:51:54,528 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1300-1325.csv
+2025-03-26 18:51:54,528 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_800-825.csv
+2025-03-26 18:51:54,533 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3200-3225.csv
+2025-03-26 18:51:54,534 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_925-950.csv
+2025-03-26 18:51:54,535 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1325-1350.csv
+2025-03-26 18:51:54,535 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1850-1875.csv
+2025-03-26 18:51:54,536 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3225-3250.csv
+2025-03-26 18:51:54,537 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1425-1450.csv
+2025-03-26 18:51:54,537 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1400-1425.csv
+2025-03-26 18:51:54,537 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1200-1225.csv
+2025-03-26 18:51:54,537 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1225-1250.csv
+2025-03-26 18:51:54,538 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1575-1600.csv
+2025-03-26 18:51:54,538 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1950-1975.csv
+2025-03-26 18:51:54,538 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_975-1000.csv
+2025-03-26 18:51:54,538 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1525-1550.csv
+2025-03-26 18:51:54,539 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_775-800.csv
+2025-03-26 18:51:54,539 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1500-1525.csv
+2025-03-26 18:51:54,539 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1050-1075.csv
+2025-03-26 18:51:54,539 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3150-3175.csv
+2025-03-26 18:51:54,540 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2375-2400.csv
+2025-03-26 18:51:54,540 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1275-1300.csv
+2025-03-26 18:51:54,540 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1750-1775.csv
+2025-03-26 18:51:54,540 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2300-2325.csv
+2025-03-26 18:51:54,541 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2325-2350.csv
+2025-03-26 18:51:54,541 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2850-2875.csv
+2025-03-26 18:51:54,541 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2425-2450.csv
+2025-03-26 18:51:54,541 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2400-2425.csv
+2025-03-26 18:51:54,541 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2150-2175.csv
+2025-03-26 18:51:54,542 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2475-2500.csv
+2025-03-26 18:51:54,542 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2650-2675.csv
+2025-03-26 18:51:54,542 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1975-2000.csv
+2025-03-26 18:51:54,542 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1900-1925.csv
+2025-03-26 18:51:54,543 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1075-1100.csv
+2025-03-26 18:51:54,543 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1250-1275.csv
+2025-03-26 18:51:54,543 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1925-1950.csv
+2025-03-26 18:51:54,543 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1550-1575.csv
+2025-03-26 18:51:54,544 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3125-3150.csv
+2025-03-26 18:51:54,544 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1025-1050.csv
+2025-03-26 18:51:54,544 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3100-3125.csv
+2025-03-26 18:51:54,544 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1000-1025.csv
+2025-03-26 18:51:54,545 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1700-1725.csv
+2025-03-26 18:51:54,545 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_3175-3200.csv
+2025-03-26 18:51:54,545 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_1725-1750.csv
+2025-03-26 18:51:54,546 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2800-2825.csv
+2025-03-26 18:51:54,546 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2350-2375.csv
+2025-03-26 18:51:54,546 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2825-2850.csv
+2025-03-26 18:51:54,546 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2450-2475.csv
+2025-03-26 18:51:54,547 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2675-2700.csv
+2025-03-26 18:51:54,547 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2125-2150.csv
+2025-03-26 18:51:54,547 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2100-2125.csv
+2025-03-26 18:51:54,547 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2875-2900.csv
+2025-03-26 18:51:54,548 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2600-2625.csv
+2025-03-26 18:51:54,548 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2625-2650.csv
+2025-03-26 18:51:54,548 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2175-2200.csv
+2025-03-26 18:51:54,548 - INFO - Moved file to archive: ../data/raw/.archive/raw_reviews_2775-2800.csv
+2025-03-26 18:52:42,983 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:52:43,151 - INFO - Successfully loaded 50498 rows of data.
+2025-03-26 18:52:43,151 - INFO - Standardizing date formats...
+2025-03-26 18:52:43,466 - INFO - Date formats standardized successfully.
+2025-03-26 18:52:43,467 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 18:52:43,501 - INFO - Temporal features extracted successfully.
+2025-03-26 18:52:43,502 - INFO - Removing rows with missing values...
+2025-03-26 18:52:43,516 - INFO - Removed 0 rows with missing values. Remaining rows: 50498
+2025-03-26 18:52:43,517 - INFO - Removing rows with invalid ratings...
+2025-03-26 18:52:43,520 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 50498
+2025-03-26 18:52:43,521 - INFO - Cleaning review text...
+2025-03-26 18:52:47,859 - INFO - Review text cleaned successfully.
+2025-03-26 18:52:47,860 - INFO - Removing short reviews...
+2025-03-26 18:52:47,869 - INFO - Removed 113 short reviews. Remaining rows: 50385
+2025-03-26 18:52:47,870 - INFO - Saving cleaned data to CSV...
+2025-03-26 18:52:48,056 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326185247.csv
+2025-03-26 18:55:54,679 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 18:55:54,844 - INFO - Successfully loaded 50498 rows of data.
+2025-03-26 18:55:54,844 - INFO - Standardizing date formats...
+2025-03-26 18:55:55,188 - INFO - Date formats standardized successfully.
+2025-03-26 18:55:55,189 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 18:55:55,223 - INFO - Temporal features extracted successfully.
+2025-03-26 18:55:55,224 - INFO - Removing rows with missing values...
+2025-03-26 18:55:55,238 - INFO - Removed 0 rows with missing values. Remaining rows: 50498
+2025-03-26 18:55:55,239 - INFO - Removing rows with invalid ratings...
+2025-03-26 18:55:55,243 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 50498
+2025-03-26 18:55:55,244 - INFO - Cleaning review text...
+2025-03-26 18:55:59,564 - INFO - Review text cleaned successfully.
+2025-03-26 18:55:59,564 - INFO - Removing short reviews...
+2025-03-26 18:55:59,575 - INFO - Removed 113 short reviews. Remaining rows: 50385
+2025-03-26 18:55:59,575 - INFO - Saving cleaned data to CSV...
+2025-03-26 18:55:59,759 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326185559.csv
+2025-03-26 18:56:00,018 - INFO - Directories ensured: ../data/full, ../data/archive, ../parameters
+2025-03-26 18:56:00,018 - INFO - No existing file found at ../data/full/full_reviews.csv, initializing empty DataFrame
+2025-03-26 18:56:00,053 - INFO - Original records: 0
+2025-03-26 18:56:00,053 - INFO - Updated records: 50385
+2025-03-26 18:56:00,053 - INFO - New records added: 50385
+2025-03-26 18:56:00,054 - INFO - Wrote '1' to ../parameters/new_reviews.txt
+2025-03-26 18:56:00,055 - INFO - Percentage increase in data: 100.00%
+2025-03-26 18:56:00,241 - INFO - Updated data saved to ../data/full/full_reviews.csv
+2025-03-26 18:56:00,242 - INFO - Archived cleaned review file to: ../data/archive/cleaned_reviews_20250326185559.csv
+2025-03-26 19:08:41,351 - INFO - Loading raw data from: ../data/raw/raw_reviews_0.csv
+2025-03-26 19:08:41,517 - INFO - Successfully loaded 50498 rows of data.
+2025-03-26 19:08:41,518 - INFO - Standardizing date formats...
+2025-03-26 19:08:41,836 - INFO - Date formats standardized successfully.
+2025-03-26 19:08:41,837 - INFO - Extracting temporal features (year, month, day, hour)...
+2025-03-26 19:08:41,890 - INFO - Temporal features extracted successfully.
+2025-03-26 19:08:41,890 - INFO - Removing rows with missing values...
+2025-03-26 19:08:41,906 - INFO - Removed 0 rows with missing values. Remaining rows: 50498
+2025-03-26 19:08:41,906 - INFO - Removing rows with invalid ratings...
+2025-03-26 19:08:41,910 - INFO - Removed 0 rows with invalid ratings. Remaining rows: 50498
+2025-03-26 19:08:41,910 - INFO - Cleaning review text...
+2025-03-26 19:08:46,233 - INFO - Review text cleaned successfully.
+2025-03-26 19:08:46,234 - INFO - Removing short reviews...
+2025-03-26 19:08:46,244 - INFO - Removed 113 short reviews. Remaining rows: 50385
+2025-03-26 19:08:46,244 - INFO - Saving cleaned data to CSV...
+2025-03-26 19:08:46,436 - INFO - Cleaned data saved to: ../data/cleaned/cleaned_reviews_20250326190846.csv
+2025-03-26 19:08:46,700 - INFO - Directories ensured: ../data/full, ../data/archive, ../parameters
+2025-03-26 19:08:46,701 - INFO - No existing file found at ../data/full/full_reviews.csv, initializing empty DataFrame
+2025-03-26 19:08:46,737 - INFO - Original records: 0
+2025-03-26 19:08:46,737 - INFO - Updated records: 50385
+2025-03-26 19:08:46,738 - INFO - New records added: 50385
+2025-03-26 19:08:46,739 - INFO - Wrote '1' to ../parameters/new_reviews.txt
+2025-03-26 19:08:46,740 - INFO - Percentage increase in data: 100.00%
+2025-03-26 19:08:46,929 - INFO - Updated data saved to ../data/full/full_reviews.csv
+2025-03-26 19:08:46,930 - INFO - Archived cleaned review file to: ../data/archive/cleaned_reviews_20250326190846.csv
