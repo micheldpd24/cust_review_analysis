@@ -4,7 +4,4 @@ nltk
 emoji
 spacy
 pandas
-matplotlib
-plotly
-wordcloud
-dash
+
