@@ -1,6 +1,5 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
-from airflow.operators.bash import BashOperator
 from airflow.operators.empty import EmptyOperator
 from datetime import datetime, timedelta
 
@@ -8,17 +7,17 @@ from utils import check_new_reviews
 from utils import extract_reviews
 from utils import process_reviews
 from utils import load_reviews
+import logging
 
-def check_new_data(**kwargs):
+def check_new_data(ti):
     """Check if there are new reviews."""
-    print("Verifying if there are new reviews.")
-    new_review_flag  = check_new_reviews()
-    kwargs['ti'].xcom_push(key='new_review_flag', value=new_review_flag)
-    return "load_reviews" if new_review_flag == 1 else "stop_pipeline"
-
-def stop_pipeline():
-    """Stop the pipeline if no new reviews are found."""
-    print("No new reviews found. Stopping the pipeline.")
+    logging.info("Verifying if there are new reviews.")
+    new_review_flag  = ti.xcom_pull(task_ids='load_reviews')
+    logging.info(f"New review flag: {new_review_flag}")
+    if new_review_flag == 1:
+        return "train_task" 
+    else: 
+        return "end_task"
 
 # Define default arguments
 default_args = {
@@ -34,19 +33,24 @@ dag = DAG(
     'reviews_analysis_pipeline',
     default_args=default_args,
     description='pipeline for customer reviews analysis',
-    schedule_interval='*/30 * * * *',  # Every  minutes
+    schedule_interval='*/5 * * * *',  # Every  minutes
     catchup=False,
     max_active_runs=1
 )
 
 # Define tasks
 
-# Create the start task 
-# start_task = EmptyOperator(
-#     task_id='start_task',
-#     dag=dag,
-# )
+# Create the end task 
+end_task = EmptyOperator(
+    task_id='end_task',
+    dag=dag,
+)
 
+# Create the empty train task 
+train_task = EmptyOperator(
+    task_id='train_task',
+    dag=dag,
+)
 extract_reviews_task = PythonOperator(
     task_id='extract_reviews',
     python_callable=extract_reviews,
@@ -62,13 +66,6 @@ process_reviews_task = PythonOperator(
     dag=dag,
 )
 
-check_new_data_task = BranchPythonOperator(
-    task_id='check_new_data',
-    python_callable=check_new_data,
-    provide_context=True,
-    dag=dag,
-)
-
 load_reviews_task = PythonOperator(
     task_id='load_reviews',
     python_callable=load_reviews,
@@ -76,20 +73,13 @@ load_reviews_task = PythonOperator(
     dag=dag,
 )
 
-stop_pipeline_task = PythonOperator(
-    task_id='stop_pipeline',
-    python_callable=stop_pipeline,
+check_new_data_task = BranchPythonOperator(
+    task_id='check_new_data',
+    python_callable=check_new_data,
+    provide_context=True,
     dag=dag,
 )
 
-# DockerOperator to run the Dashboard: dash-board:latest
-# launch_dashboard_task = BashOperator(
-#     task_id="launchdashboard",
-#     bash_command="docker run -v /Users/micheldpd/Projects/rev_analysis/data/full:/data -p 8050:8050 --rm dash-board:latest",
-#     dag=dag
-# )
-
-# Define task dependencies
-extract_reviews_task >> process_reviews_task >> check_new_data_task 
-check_new_data_task >> [load_reviews_task, stop_pipeline_task]
-
+# Set task dependencies
+extract_reviews_task >> process_reviews_task >> load_reviews_task>> check_new_data_task
+check_new_data_task >> [train_task, end_task]
