@@ -1,0 +1,10 @@
+dash
+pandas
+nbformat
+plotly
+nltk
+wordcloud
+matplotlib
+dash-bootstrap-components
+dash-core-components
+dash-html-components
