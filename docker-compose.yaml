@@ -50,7 +50,9 @@ x-airflow-common:
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.10.5}
-  build: .
+  build:
+    context: ./airflow
+    dockerfile: Dockerfile
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
@@ -59,7 +61,7 @@ x-airflow-common:
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
@@ -82,8 +84,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/parameters:/opt/airflow/parameters
     - ${AIRFLOW_PROJ_DIR:-.}/nltk_data:/home/airflow/nltk_data
-    # - '/var/run/docker.sock:/var/run/docker.sock' # Addition for DOckerOperator
-    # - '/tmp:/tmp' # Addition for Docker Operator
+    # - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -254,7 +255,7 @@ services:
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
     volumes:
-      - ${AIRFLOW_PROJ_DIR:-.}:/sources
+      - ${AIRFLOW_PROJ_DIR:-.}/airflow:/sources
 
   airflow-cli:
     <<: *airflow-common
@@ -291,7 +292,7 @@ services:
       airflow-init:
         condition: service_completed_successfully
 
-# run review dasboard dash-board container
+  # run review dasboard dash-board container
   dash-board:
     build:
       context: ./dashboard
@@ -299,13 +300,19 @@ services:
     container_name: dash-board
     image: dash-board:latest
     ports:
-      - "8050:8050"
+      - "${DASHBOARD_PORT:-8050}:8050"
     volumes:
-      - /Users/micheldpd/Projects/rev_analysis/data/full:/data
+      - ${AIRFLOW_PROJ_DIR:-.}/data/full:/data
+      - ${AIRFLOW_PROJ_DIR:-.}/dashboard:/app
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8050/"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
     depends_on:
       airflow-webserver:
         condition: service_healthy
-    restart: always
+    restart: unless-stopped
 
 volumes:
   postgres-db-volume:
