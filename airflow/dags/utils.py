@@ -31,12 +31,6 @@ from config.config import (
     HEADERS,
     STOP_WORDS_TO_ADD,
 )
-from logging_config import setup_logging
-
-
-
-# Initialize logging
-setup_logging()
 
 # Preload stopwords outside the function to avoid repeated loading
 STOP_WORDS = set(stopwords.words("french")).union(set(STOP_WORDS_TO_ADD))
@@ -314,21 +308,57 @@ def process_reviews(raw_file):
 
 
 # Function to load cleaned reviews into the full database
-def load_reviews(cleaned_file):
+import os
+import logging
+from pathlib import Path
+import pandas as pd
+from datetime import datetime
+
+# Named constants for return values
+SUCCESS = 1
+NO_UPDATES = 0
+ERROR = None
+
+def ensure_directory_exists(path: Path):
+    """Ensure the given directory exists."""
+    path.mkdir(parents=True, exist_ok=True)
+
+def get_file_path(directory: Path, filename: str) -> Path:
+    """Construct a file path from a directory and filename."""
+    return directory / filename
+
+def calculate_percentage_increase(initial: int, final: int) -> float:
+    """Calculate the percentage increase between two values."""
+    return 100 if initial == 0 else ((final - initial) / initial * 100)
+
+def load_reviews(cleaned_file: str, full_reviews_dir: Path = FULL_REVIEWS_DIR, archive_dir: Path = ARCHIVE_DIR) -> int:
+    """
+    Load cleaned reviews into the full database.
+
+    Args:
+        cleaned_file (str): Path to the cleaned reviews CSV file.
+        full_reviews_dir (Path): Directory for the full reviews file.
+        archive_dir (Path): Directory for archived files.
+
+    Returns:
+        int: SUCCESS (1) if new records were added, NO_UPDATES (0) if no updates were made, ERROR (None) if an error occurred.
+    """
     try:
+        # Ensure directories exist
+        ensure_directory_exists(full_reviews_dir)
+        ensure_directory_exists(archive_dir)
+
+        # Load cleaned reviews
         df = pd.read_csv(cleaned_file)
-        # base_dir = Path("./data")
-        full_reviews_folder = FULL_REVIEWS_DIR  # base_dir / "full"
-        archive_folder = ARCHIVE_DIR  # base_dir / "archive"
-        full_reviews_file = "full_reviews.csv"
-        full_reviews_path = FULL_REVIEWS_DIR / full_reviews_file
-        new_reviews_flag_path = NEW_REVIEW_PARAM_FILE
+        if df.empty:
+            logging.warning("Input DataFrame is empty")
+            return NO_UPDATES
 
-        full_reviews_folder.mkdir(parents=True, exist_ok=True)
-        archive_folder.mkdir(parents=True, exist_ok=True)
-        new_reviews_flag_path.parent.mkdir(parents=True, exist_ok=True)
-
+        # Define file paths
+        full_reviews_path = get_file_path(full_reviews_dir, "full_reviews.csv")
         df_full = pd.DataFrame()
+
+        # Load existing data if it exists
         if full_reviews_path.exists():
             try:
                 df_full = pd.read_csv(full_reviews_path, low_memory=False)
@@ -340,52 +370,35 @@ def load_reviews(cleaned_file):
         else:
             logging.info(f"No existing file found at {full_reviews_path}, initializing empty DataFrame")
 
-        if df.empty:
-            logging.warning("Input DataFrame is empty")
-            return None
-
+        # Update full reviews
         initial_length = len(df_full)
-        df_full_updated = pd.concat([df_full, df], ignore_index=True)
-        df_full_updated = df_full_updated.drop_duplicates(subset=df.columns, keep="last")
+        df_full_updated = pd.concat([df_full, df], ignore_index=True).drop_duplicates(subset=df.columns, keep="last")
         final_length = len(df_full_updated)
+        new_records_added = final_length - initial_length
 
         logging.info(f"Original records: {initial_length}")
         logging.info(f"Updated records: {final_length}")
-        new_records_added = final_length - initial_length
         logging.info(f"New records added: {new_records_added}")
 
-        has_new_reviews = final_length > initial_length
-        flag_value = "1" if has_new_reviews else "0"
-        with open(new_reviews_flag_path, "w") as f:
-            f.write(flag_value)
-        logging.info(f"Wrote '{flag_value}' to {new_reviews_flag_path}")
+        if new_records_added > 0:
+            percentage_increase = calculate_percentage_increase(initial_length, final_length)
+            logging.info(f"Percentage increase in data: {percentage_increase:.2f}%")
 
-        if not has_new_reviews:
-            logging.info("No new reviews to process. Exiting without updates.")
-            return df_full_updated
-
-        percentage_increase = (
-            100 if initial_length == 0 and final_length > 0 else ((final_length - initial_length) / initial_length * 100)
-        )
-        logging.info(f"Percentage increase in data: {percentage_increase:.2f}%")
-
-        if full_reviews_path.exists():
+            # Backup existing data
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            backup_path = full_reviews_folder / f"full_reviews_backup_{timestamp}.csv"
+            backup_path = get_file_path(full_reviews_dir, f"full_reviews_backup_{timestamp}.csv")
             df_full.to_csv(backup_path, index=False)
             logging.info(f"Backup created at {backup_path}")
 
-        df_full_updated.to_csv(full_reviews_path, index=False)
-        logging.info(f"Updated data saved to {full_reviews_path}")
+            # Save updated data
+            df_full_updated.to_csv(full_reviews_path, index=False)
+            logging.info(f"Updated data saved to {full_reviews_path}")
 
-        try:
-            archive_path = archive_folder / cleaned_file.name
-            shutil.move(cleaned_file, archive_path)
-            logging.info(f"Archived cleaned review file to: {archive_path}")
-        except Exception as e:
-            logging.error(f"Error archiving cleaned review file: {e}")
+            return SUCCESS
+        else:
+            logging.info("No new reviews to process. Exiting without updates.")
+            return NO_UPDATES
 
-        return str(full_reviews_path)  # Return the path to the updated DataFrame
     except Exception as e:
-        logging.error(f"Error processing reviews: {str(e)}")
-        return None
+        logging.error(f"Error loading reviews: {e}")
+        return ERROR

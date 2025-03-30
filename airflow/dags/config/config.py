@@ -9,7 +9,7 @@ BASE_URL = f"https://fr.trustpilot.com/review/www.{COMPANY_NAME}.fr"
 # File Paths
 MAX_PAGE_PARAM_FILE = Path("./parameters/max_page.txt")
 NEW_REVIEW_PARAM_FILE = Path("./parameters/new_reviews.txt")
-LOG_FILE = Path("./logs_etl/concatenation.log")
+# LOG_FILE = Path("./logs_etl/concatenation.log")
 
 # Directories
 RAW_DATA_DIR = Path("./data/raw")
@@ -27,18 +27,19 @@ HEADERS = {
 }
 
 # Logging Configuration
-LOGGING_CONFIG = {
-    "level": "INFO",
-    "format": "%(asctime)s - %(levelname)s - %(message)s",
-    "handlers": [
-        {"type": "FileHandler", "filename": LOG_FILE},
-        {"type": "StreamHandler"},
-    ],
-}
+# LOGGING_CONFIG = {
+#     "level": "INFO",
+#     "format": "%(asctime)s - %(levelname)s - %(message)s",
+#     "handlers": [
+#         {"type": "FileHandler", "filename": LOG_FILE},
+#         {"type": "StreamHandler"},
+#     ],
+# }
 
 # Stopwords for Text Cleaning
 STOP_WORDS_TO_ADD: List[str] = [
     "être", "leur", "leurs", "avoir", "cela", "les", "de", "pour", "des", "cette", "a",
     "j'ai", "car", "c'est", "chez", "tout", "fait", "chez", "donc", 
-    "n'est", "si", "alors", "n'ai", "faire", "deux", "comme", "jour", "tr", "si", "ue"
+    "n'est", "si", "alors", "n'ai", "faire", "deux", "comme", "jour", "tr", "si", "ue",
+    "back", "backmarket", "market"
 ]
