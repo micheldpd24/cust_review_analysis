@@ -1,0 +1,12 @@
+beautifulsoup4
+requests
+nltk
+emoji
+spacy
+pandas
+jupyter
+nbformat
+dash-bootstrap-components
+dash-core-components
+dash-html-components
+
