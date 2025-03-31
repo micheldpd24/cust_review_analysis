@@ -36,20 +36,6 @@ from config.config import (
 STOP_WORDS = set(stopwords.words("french")).union(set(STOP_WORDS_TO_ADD))
 
 
-# Function to check new_review parameter
-def check_new_reviews(file_path=NEW_REVIEW_PARAM_FILE):
-    try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            first_line = file.readline().strip()
-            return int(first_line) if first_line else None
-    except FileNotFoundError:
-        logging.error(f"Error: The file '{file_path}' was not found.")
-        return None
-    except Exception as e:
-        logging.error(f"An unexpected error occurred: {e}")
-        return None
-
-
 # Function to get the end page to collect reviews from
 def get_end_page(file_path=MAX_PAGE_PARAM_FILE):
     try:
@@ -69,6 +55,27 @@ def get_end_page(file_path=MAX_PAGE_PARAM_FILE):
 
 # Function to scrape reviews
 def extract_reviews(company_name=COMPANY_NAME):
+    """
+    Scrapes reviews for a given company and saves the raw data to a CSV file.
+
+    This function:
+    - Determines the range of pages to scrape based on the end page (capped at 10 pages).
+    - Fetches review data from each page, extracts specific fields, and stores them in a list.
+    - Saves the collected reviews as a CSV file in the specified output directory.
+    - Updates a parameter file with the new starting page value for future runs.
+
+    Args:
+        company_name (str): Name of the company to scrape reviews for. Defaults to COMPANY_NAME.
+
+    Returns:
+        str: Path to the saved CSV file containing the raw reviews, or None if no reviews are collected.
+
+    Logs:
+        - Progress updates for each page processed.
+        - Warnings for missing or invalid data.
+        - Errors encountered during scraping or processing.
+    """
+
     headers = HEADERS
     base_url = BASE_URL
     keys = [
@@ -187,6 +194,27 @@ def standardize_date_formats(df):
 
 # Function to process reviews
 def process_reviews(raw_file):
+    """
+    Processes raw review data by cleaning, standardizing, and enriching it.
+
+    This function performs the following steps:
+    1. Loads raw review data from a CSV file.
+    2. Standardizes date formats and extracts temporal features (e.g., year, month, day).
+    3. Adds derived columns such as review length, sentiment, and cleaned text.
+    4. Removes rows with missing or invalid data (e.g., missing key fields, invalid ratings).
+    5. Filters out short reviews and saves the cleaned data to a new CSV file.
+
+    Args:
+        raw_file (str): Path to the raw reviews CSV file.
+
+    Returns:
+        str: Path to the saved cleaned reviews CSV file, or None if processing fails.
+
+    Logs:
+        - Progress updates for each processing step.
+        - Errors encountered during loading, cleaning, or saving.
+    """
+
     try:
         df = pd.read_csv(raw_file)
         logging.info(f"Successfully loaded {len(df)} rows of data.")
@@ -313,6 +341,7 @@ import logging
 from pathlib import Path
 import pandas as pd
 from datetime import datetime
+    
 
 # Named constants for return values
 SUCCESS = 1
