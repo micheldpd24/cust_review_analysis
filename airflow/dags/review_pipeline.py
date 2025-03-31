@@ -3,7 +3,6 @@ from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.empty import EmptyOperator
 from datetime import datetime, timedelta
 
-from utils import check_new_reviews 
 from utils import extract_reviews
 from utils import process_reviews
 from utils import load_reviews
