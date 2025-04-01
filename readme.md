@@ -34,7 +34,8 @@ The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to 
 
 ## Project Organization
 
-'''├── airflow
+```bash
+├── airflow
 │   ├── Dockerfile
 │   ├── dags
 │   └── requirements.txt
@@ -54,7 +55,8 @@ The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to 
 │   └── reviews_extraction.ipynb
 ├── readme.md
 ├── requirements.txt
-├── setup.sh'''
+├── setup.sh
+```
 
 ### Project Tree Description
 
