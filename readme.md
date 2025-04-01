@@ -14,8 +14,7 @@ The pipeline is orchestrated using **Apache Airflow** running in a Docker contai
 4. [Pipeline Workflow](#pipeline-workflow)
 5. [Installation and Setup](#installation-and-setup)
 6. [Usage](#usage)
-7. [Contributing](#contributing)
-8. [License](#license)
+7. [License](#license)
 
 ---
 
