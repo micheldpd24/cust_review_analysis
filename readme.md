@@ -63,7 +63,7 @@ This is the structure of a project designed to scrape, process, and analyze cust
 
 ---
 
-### **Root Directory**
+#### **Root Directory**
 
 - **`docker-compose.yaml`**:
   - Defines the Docker Compose configuration for running the entire project, including Airflow and the Dash dashboard.
@@ -79,7 +79,7 @@ This is the structure of a project designed to scrape, process, and analyze cust
 
 ---
 
-### **`airflow/`**
+#### **`airflow/`**
 This directory contains all files related to the Apache Airflow pipeline.
 
 - **`Dockerfile`**:
@@ -93,7 +93,7 @@ This directory contains all files related to the Apache Airflow pipeline.
 
 ---
 
-### **`dashboard/`**
+#### **`dashboard/`**
 This directory contains all files related to the Dash-based dashboard.
 
 - **`Dockerfile`**:
@@ -107,7 +107,7 @@ This directory contains all files related to the Dash-based dashboard.
 
 ---
 
-### **`data/`**
+#### **`data/`**
 This directory organizes all data used in the project.
 will be created after running the setup script and the pipeline.
 - **`archive/`**:
@@ -124,7 +124,7 @@ will be created after running the setup script and the pipeline.
 
 ---
 
-### **`notebooks/`**
+#### **`notebooks/`**
 This directory contains Jupyter notebooks for exploratory data analysis, development, and testing.
 
 - **`reviews_dashboard.ipynb`**:
@@ -136,28 +136,6 @@ This directory contains Jupyter notebooks for exploratory data analysis, develop
 - **`reviews_extraction.ipynb`**:
   - Notebook for testing and debugging the scraping and data extraction process.
 
----
-
-### **Workflow Overview**
-
-1. **Data Scraping**:
-   - Reviews are scraped from Trustpilot using scripts defined in the Airflow DAGs (`airflow/dags/`).
-
-2. **Data Processing**:
-   - Raw data is cleaned and processed into structured formats, stored in `data/cleaned/`.
-
-3. **Data Loading**:
-   - Processed data is combined into the final dataset (`data/full/full_reviews.csv`).
-
-4. **Dashboard Visualization**:
-   - The Dash app reads `full_reviews.csv` and provides interactive visualizations, updated every 50 seconds if new data is detected.
-
-5. **Orchestration**:
-   - Airflow manages the end-to-end pipeline, ensuring regular updates to the dataset and dashboard.
-
----
-
-This structure ensures a clean, organized, and scalable project setup for analyzing customer reviews.
 ---
 
 ## Dashboard Features
