@@ -34,27 +34,27 @@ The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to 
 
 ## Project Organization
 
-├── airflow
-│   ├── Dockerfile
-│   ├── dags
-│   └── requirements.txt
+'''├── airflow
+│   ├── Dockerfile
+│   ├── dags
+│   └── requirements.txt
 ├── dashboard
-│   ├── Dockerfile
-│   ├── app.py
-│   └── requirements.txt
+│   ├── Dockerfile
+│   ├── app.py
+│   └── requirements.txt
 ├── data
-│   ├── archive
-│   ├── cleaned
-│   ├── full
-│   └── raw
+│   ├── archive
+│   ├── cleaned
+│   ├── full
+│   └── raw
 ├── docker-compose.yaml
 ├── notebooks
-│   ├── reviews_dashboard.ipynb
-│   ├── reviews_dataviz.ipynb
-│   └── reviews_extraction.ipynb
+│   ├── reviews_dashboard.ipynb
+│   ├── reviews_dataviz.ipynb
+│   └── reviews_extraction.ipynb
 ├── readme.md
 ├── requirements.txt
-└── setup.sh
+├── setup.sh'''
 
 ### Project Tree Description
 
