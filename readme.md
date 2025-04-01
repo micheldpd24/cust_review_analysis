@@ -9,12 +9,13 @@ The pipeline is orchestrated using **Apache Airflow** running in a Docker contai
 ## Table of Contents
 
 1. [Overview](#overview)
-2. [Dashboard Features](#dashboard-features)
-3. [Pipeline Workflow](#pipeline-workflow)
-4. [Installation and Setup](#installation-and-setup)
-5. [Usage](#usage)
-6. [Contributing](#contributing)
-7. [License](#license)
+2. [Project organiztion](#project-organization)
+3. [Dashboard Features](#dashboard-features)
+4. [Pipeline Workflow](#pipeline-workflow)
+5. [Installation and Setup](#installation-and-setup)
+6. [Usage](#usage)
+7. [Contributing](#contributing)
+8. [License](#license)
 
 ---
 
@@ -29,6 +30,133 @@ The project automates the collection and analysis of customer reviews from Trust
 
 The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to the dataset and dashboard.
 
+---
+
+## Project Organization
+
+├── airflow
+│   ├── Dockerfile
+│   ├── dags
+│   └── requirements.txt
+├── dashboard
+│   ├── Dockerfile
+│   ├── app.py
+│   └── requirements.txt
+├── data
+│   ├── archive
+│   ├── cleaned
+│   ├── full
+│   └── raw
+├── docker-compose.yaml
+├── notebooks
+│   ├── reviews_dashboard.ipynb
+│   ├── reviews_dataviz.ipynb
+│   └── reviews_extraction.ipynb
+├── readme.md
+├── requirements.txt
+└── setup.sh
+
+### Project Tree Description
+
+This is the structure of a project designed to scrape, process, and analyze customer reviews from **Trustpilot** for a given company. The project includes an **Apache Airflow pipeline** for orchestrating data workflows, a **Dash-based dashboard** for visualizing insights, and supporting files for development and deployment. Below is a detailed description of each component in the tree:
+
+---
+
+### **Root Directory**
+
+- **`docker-compose.yaml`**:
+  - Defines the Docker Compose configuration for running the entire project, including Airflow and the Dash dashboard.
+
+- **`readme.md`**:
+  - Documentation file describing the project, its features, installation steps, and usage instructions.
+
+- **`requirements.txt`**:
+  - Lists Python dependencies required for the project (used outside Docker containers).
+
+- **`setup.sh`**:
+  - A shell script to initialize necessary directories and parameters for the project. Must be executed with appropriate permissions.
+
+---
+
+### **`airflow/`**
+This directory contains all files related to the Apache Airflow pipeline.
+
+- **`Dockerfile`**:
+  - Defines the Docker image for Airflow, including customizations like additional dependencies or configurations.
+
+- **`dags/`**:
+  - Contains the Directed Acyclic Graphs (DAGs) that define the Airflow workflows. Each DAG represents a pipeline step (e.g., scraping, processing, loading reviews).
+
+- **`requirements.txt`**:
+  - Lists Python dependencies specific to the Airflow environment and the reviews pipeline (e.g., `apache-airflow`, `pandas`, `nltk`).
+
+---
+
+### **`dashboard/`**
+This directory contains all files related to the Dash-based dashboard.
+
+- **`Dockerfile`**:
+  - Defines the Docker image for the Dash app, including dependencies and configurations.
+
+- **`app.py`**:
+  - The main Python script for the Dash app. It defines the layout, callbacks, and interactivity of the dashboard.
+
+- **`requirements.txt`**:
+  - Lists Python dependencies required for the Dash app (e.g., `dash`, `plotly`, `pandas`, `wordcloud`).
+
+---
+
+### **`data/`**
+This directory organizes all data used in the project.
+will be created after running the setup script and the pipeline.
+- **`archive/`**:
+  - Stores archived versions of processed data (e.g., older datasets for historical analysis).
+
+- **`cleaned/`**:
+  - Contains cleaned and processed review data ready for analysis.
+
+- **`full/`**:
+  - Stores the final dataset (`full_reviews.csv`) used by the Dash dashboard for visualization.
+
+- **`raw/`**:
+  - Contains raw, unprocessed data scraped from Trustpilot.
+
+---
+
+### **`notebooks/`**
+This directory contains Jupyter notebooks for exploratory data analysis, development, and testing.
+
+- **`reviews_dashboard.ipynb`**:
+  - Notebook for prototyping and testing the Dash dashboard's visualizations.
+
+- **`reviews_dataviz.ipynb`**:
+  - Notebook for exploring and visualizing review data (e.g., sentiment analysis, trends).
+
+- **`reviews_extraction.ipynb`**:
+  - Notebook for testing and debugging the scraping and data extraction process.
+
+---
+
+### **Workflow Overview**
+
+1. **Data Scraping**:
+   - Reviews are scraped from Trustpilot using scripts defined in the Airflow DAGs (`airflow/dags/`).
+
+2. **Data Processing**:
+   - Raw data is cleaned and processed into structured formats, stored in `data/cleaned/`.
+
+3. **Data Loading**:
+   - Processed data is combined into the final dataset (`data/full/full_reviews.csv`).
+
+4. **Dashboard Visualization**:
+   - The Dash app reads `full_reviews.csv` and provides interactive visualizations, updated every 50 seconds if new data is detected.
+
+5. **Orchestration**:
+   - Airflow manages the end-to-end pipeline, ensuring regular updates to the dataset and dashboard.
+
+---
+
+This structure ensures a clean, organized, and scalable project setup for analyzing customer reviews.
 ---
 
 ## Dashboard Features
@@ -86,7 +214,7 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
 
 ### Prerequisites
 - **Docker** and **Docker Compose** installed on your system.
-- Python 3.9+ (for local development or custom scripts).
+- Python 3.11 (for local development or custom scripts).
 
 ### Steps
 
@@ -148,17 +276,6 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
 
 ---
 
-## Contributing
-
-We welcome contributions! To contribute:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature-name`).
-3. Commit your changes (`git commit -m "Add your feature"`).
-4. Push to the branch (`git push origin feature/your-feature-name`).
-5. Open a pull request.
-
----
 
 ## License
 
