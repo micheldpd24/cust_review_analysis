@@ -23,7 +23,6 @@ from config.config import (
     COMPANY_NAME,
     BASE_URL,
     MAX_PAGE_PARAM_FILE,
-    NEW_REVIEW_PARAM_FILE,
     RAW_DATA_DIR,
     CLEANED_DATA_DIR,
     FULL_REVIEWS_DIR,
