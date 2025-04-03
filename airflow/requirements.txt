@@ -2,7 +2,7 @@ beautifulsoup4
 requests
 nltk
 emoji
-spacy
+spacy < 3.8.0
 pandas
 
 
