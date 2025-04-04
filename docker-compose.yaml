@@ -84,7 +84,8 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/parameters:/opt/airflow/parameters
     # - ${AIRFLOW_PROJ_DIR:-.}/nltk_data:/home/airflow/nltk_data
-    # - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
+    - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
+    - '/tmp:/tmp'
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -313,6 +314,20 @@ services:
       airflow-webserver:
         condition: service_healthy
     restart: unless-stopped
+
+# # run reviews preprcessing (and train test split)
+#   preprocessing:
+#     build:
+#       context: ./preprocessing
+#       dockerfile: Dockerfile
+#     container_name: preprocessing
+#     image: preprocessing:latest
+#     volumes:
+#       - ${AIRFLOW_PROJ_DIR:-.}/data/full:/data
+#       - ${AIRFLOW_PROJ_DIR:-.}/preprocessing:/app
+#     depends_on:
+#       airflow-webserver:
+#         condition: service_healthy
 
 volumes:
   postgres-db-volume:
