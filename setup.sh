@@ -2,6 +2,10 @@
 
 # This script creates the necessary directories and initializes the file parameters/max_page.txt with the value "100".
 
+# 0. Create the .env file for the AirFLOW_UID
+echo "Creating the .env file..."
+echo "AIRFLOW_UID=50000" > .env
+
 # 1. Create the directories data/raw and data/cleaned
 echo "Creating directories data/raw and data/cleaned..."
 mkdir -p data/raw
