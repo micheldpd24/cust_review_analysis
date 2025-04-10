@@ -74,8 +74,9 @@ x-airflow-common:
     # The following line can be used to set a custom config file, stored in the local config folder
     # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-  env_file:
-    - .env
+    # TRANSFORMERS_CACHE: /hf_cache
+  # env_file:
+  # - .env
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/logs:/opt/airflow/logs
@@ -84,8 +85,10 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/parameters:/opt/airflow/parameters
     # - ${AIRFLOW_PROJ_DIR:-.}/nltk_data:/home/airflow/nltk_data
-    - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
-    - '/tmp:/tmp'
+    # - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
+    # - '/tmp:/tmp'
+    # - ${AIRFLOW_PROJ_DIR:-.}/hf_cache:/hf_cache
+    # - ${AIRFLOW_PROJ_DIR:-.}/sentence_transformer_model:/opt/airflow/sentence_transformer_model
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -314,20 +317,6 @@ services:
       airflow-webserver:
         condition: service_healthy
     restart: unless-stopped
-
-# # run reviews preprcessing (and train test split)
-#   preprocessing:
-#     build:
-#       context: ./preprocessing
-#       dockerfile: Dockerfile
-#     container_name: preprocessing
-#     image: preprocessing:latest
-#     volumes:
-#       - ${AIRFLOW_PROJ_DIR:-.}/data/full:/data
-#       - ${AIRFLOW_PROJ_DIR:-.}/preprocessing:/app
-#     depends_on:
-#       airflow-webserver:
-#         condition: service_healthy
 
 volumes:
   postgres-db-volume:
