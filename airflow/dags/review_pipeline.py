@@ -2,7 +2,9 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.operators.dummy import DummyOperator
 from datetime import datetime, timedelta
+
 from review_manager import ReviewsManager  # Import the ReviewsManager class
+
 
 # Default arguments for the DAG
 default_args = {
@@ -24,9 +26,9 @@ dag = DAG(
     catchup=False,
 )
 
+
 # Initialize the ReviewsManager instance
 manager = ReviewsManager()
-
 # Define the tasks
 def extract_reviews_task():
     """Task to extract reviews."""
@@ -53,6 +55,7 @@ def load_reviews_task(**kwargs):
         raise ValueError("Failed to load reviews into the database.")
     elif result == 0:  # NO_UPDATES case
         print("No new reviews to add to the database.")
+        return "NO_UPDATES"
     else:
         return "SUCCESS"  # Return SUCCESS status to indicate successful load
 
@@ -62,16 +65,10 @@ def branch_task(**kwargs):
     load_result = ti.xcom_pull(task_ids='load_reviews')
     
     if load_result == "SUCCESS":
-        return 'prepare_ml_datasets'
+        return 'topic_modeling_task'
     else:
-        return 'skip_ml_preparation'
+        return 'stop_pipeline_task'
 
-def prepare_ml_datasets_task():
-    """Task to prepare machine learning datasets."""
-    try:
-        manager.prepare_ml_datasets()
-    except Exception as e:
-        raise ValueError(f"Error preparing ML datasets: {e}")
 
 # Define the tasks using PythonOperator
 extract_reviews = PythonOperator(
@@ -102,19 +99,25 @@ branch = BranchPythonOperator(
     dag=dag,
 )
 
-prepare_ml_datasets = PythonOperator(
-    task_id='prepare_ml_datasets',
-    python_callable=prepare_ml_datasets_task,
-    dag=dag,
-)
-
-# Add a dummy operator for the skip path
+# Add a dummy operator for the pipeline stop task
 stop_pipeline_task = DummyOperator(
     task_id='stop_pipeline_task',   
     dag=dag,
 )
 
+# Add a python operator for the train model task
+topic_modeling_task = DummyOperator(
+    task_id='topic_modeling_task', 
+    dag=dag,
+)
+
+# Add a dummy operator for the evaluate model task
+# evaluate_model_task = DummyOperator(
+#     task_id='evaluate_model_task',   
+#     dag=dag,
+# )
 
 # Set task dependencies
 extract_reviews >> process_reviews >> load_reviews >> branch
-branch >> [prepare_ml_datasets, stop_pipeline_task]
+branch >> [topic_modeling_task, stop_pipeline_task]
+# topic_modeling_task >> evaluate_model_task
