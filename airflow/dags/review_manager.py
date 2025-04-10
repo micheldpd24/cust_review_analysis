@@ -5,23 +5,20 @@ This module provides functionality for scraping, processing and analyzing custom
 It handles the full pipeline from data extraction to sentiment analysis and dataset preparation.
 """
 
-import os
+# import os
 import json
 import re
 import time
-import shutil
 import logging
 import emoji
 import requests
 import pandas as pd
-import numpy as np
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple, Union, Any
+from typing import Dict, List, Optional, Any
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-from sklearn.model_selection import train_test_split
 from functools import lru_cache
 
 # Add the parent directory to the path
@@ -33,26 +30,14 @@ from config import (
     COMPANY_NAME,
     BASE_URL,
     MAX_PAGE_PARAM_FILE,
-    LOG_FILE,
     REVIEW_KEYS,
     RAW_DATA_DIR,
-    # Requests settings
-    REQUEST_TIMEOUT,  # seconds
-    REQUEST_RETRY_COUNT,
-    REQUEST_RETRY_DELAY,  # seconds
-
-    # Scraping settings
-    MAX_PAGES_TO_SCRAPE,
-    DELAY_BETWEEN_REQUESTS,
     CLEANED_DATA_DIR,
     FULL_REVIEWS_DIR,
     ARCHIVE_DIR,
     HEADERS,
     STOP_WORDS_TO_ADD,
-    MIN_REVIEW_LENGTH,
-    TEXT_CLEANING_PATTERNS,
     SENTIMENT_THRESHOLDS,
-    ML_CONFIG,
 )
 
 
@@ -467,13 +452,13 @@ class ReviewsManager:
 
     def load_reviews(self, cleaned_file: str) -> int:
         """
-        Load cleaned reviews into the full database.
-        
+        Load and update the full reviews database from a cleaned CSV file.
+
         Args:
-            cleaned_file: Path to cleaned reviews CSV file
-            
+            cleaned_file: Path to the cleaned reviews CSV.
+
         Returns:
-            int: SUCCESS if updates were made, NO_UPDATES if no updates, ERROR on failure
+            int: SUCCESS, NO_UPDATES, or ERROR.
         """
         try:
             # Ensure directories exist
@@ -490,6 +475,9 @@ class ReviewsManager:
 
             # Define full reviews path
             full_reviews_path = full_reviews_dir / "full_reviews.csv"
+            pos_reviews_path = full_reviews_dir / "positive_reviews.csv"
+            neu_reviews_path = full_reviews_dir / "neutral_reviews.csv"
+            neg_reviews_path = full_reviews_dir / "negative_reviews.csv"
             
             # Load existing data if available
             df_full = pd.DataFrame()
@@ -534,6 +522,12 @@ class ReviewsManager:
                 df_full_updated.to_csv(full_reviews_path, index=False)
                 logging.info(f"Updated data saved to {full_reviews_path}")
 
+                # Save positive, neutral, and negative reviews
+                df_full_updated[df_full_updated["sentiment"] == "positive"].to_csv(pos_reviews_path, index=False)
+                df_full_updated[df_full_updated["sentiment"] == "neutral"].to_csv(neu_reviews_path, index=False)
+                df_full_updated[df_full_updated["sentiment"] == "negative"].to_csv(neg_reviews_path, index=False)
+                logging.info(f"Positive, neutral, and negative reviews saved to {pos_reviews_path}, {neu_reviews_path}, and {neg_reviews_path}")
+
                 return SUCCESS
             else:
                 logging.info("No new reviews to process")
@@ -543,148 +537,5 @@ class ReviewsManager:
             logging.error(f"Error loading reviews: {e}")
             return ERROR
 
-    def prepare_ml_datasets(self) -> Dict[str, Dict[str, pd.Series]]:
-        """
-        Prepare machine learning datasets by splitting reviews by sentiment.
-        
-        Returns:
-            Dict: Dictionary containing train and test datasets by sentiment
-        """
-        # Create directories for output files
-        train_dir = FULL_REVIEWS_DIR / "train"
-        test_dir = FULL_REVIEWS_DIR / "test"
-        train_dir.mkdir(parents=True, exist_ok=True)
-        test_dir.mkdir(parents=True, exist_ok=True)
-        
-        # Load full reviews data
-        full_reviews_path = FULL_REVIEWS_DIR / "full_reviews.csv"
-        try:
-            df = pd.read_csv(full_reviews_path)
-            logging.info(f"Loaded {len(df)} reviews for ML dataset preparation")
-        except Exception as e:
-            logging.error(f"Error loading reviews for ML dataset preparation: {e}")
-            raise
-            
-        # Dictionary to store datasets
-        datasets = {"train": {}, "test": {}}
-        
-        # Categorize by sentiment
-        sentiment_categories = {
-            'pos': df[df["rating"] >= SENTIMENT_THRESHOLDS["positive"]],
-            'neu': df[df["rating"] == SENTIMENT_THRESHOLDS["neutral"]],
-            'neg': df[df["rating"] <= SENTIMENT_THRESHOLDS["negative"]]
-        }
-        
-        # Process each sentiment category
-        for label, segment in sentiment_categories.items():
-            if len(segment) == 0:
-                logging.warning(f"No reviews found for '{label}' category")
-                continue
-                
-            try:
-                # Determine stratification column if available
-                stratify_col = segment["yearQuarter"] if "yearQuarter" in segment.columns else None
-                
-                # Split data
-                train_reviews, test_reviews = train_test_split(
-                    segment["review"],
-                    test_size=ML_CONFIG["test_size"],
-                    random_state=ML_CONFIG["random_state"],
-                    stratify=stratify_col
-                )
-                
-                # Save to files
-                train_file = train_dir / f"train_{label}.csv"
-                test_file = test_dir / f"test_{label}.csv"
-                
-                train_reviews.to_csv(train_file)
-                test_reviews.to_csv(test_file)
-                
-                # Store in dictionary
-                datasets["train"][label] = train_reviews
-                datasets["test"][label] = test_reviews
-                
-                logging.info(f"{label.capitalize()} reviews - Training: {len(train_reviews)}, Testing: {len(test_reviews)}")
-                
-            except Exception as e:
-                logging.error(f"Error processing {label} reviews: {e}")
-                continue
-        
-        if not any(datasets["train"]):
-            logging.error("No training data was created!")
-            raise ValueError("Failed to create any training data")
-            
-        logging.info("Reviews split into train and test sets for sentiment categories")
-        return datasets
 
 
-def run_review_pipeline(start_from_scratch: bool = False):
-    """
-    Run the complete review processing pipeline.
-    
-    Args:
-        start_from_scratch: Whether to start from extraction (True) or use existing files (False)
-    """
-    manager = ReviewsManager()
-    
-    # Extract reviews if starting from scratch
-    if start_from_scratch:
-        logging.info("Starting review extraction...")
-        raw_file = manager.extract_reviews()
-        if not raw_file:
-            logging.error("Review extraction failed")
-            return
-    else:
-        # Find most recent raw file
-        try:
-            raw_files = list(RAW_DATA_DIR.glob("raw_reviews_*.csv"))
-            if not raw_files:
-                logging.error("No raw review files found")
-                return
-            raw_file = str(sorted(raw_files, key=lambda x: x.stat().st_mtime, reverse=True)[0])
-            logging.info(f"Using existing raw file: {raw_file}")
-        except Exception as e:
-            logging.error(f"Error finding raw files: {e}")
-            return
-    
-    # Process reviews
-    logging.info("Processing reviews...")
-    cleaned_file = manager.process_reviews(raw_file)
-    if not cleaned_file:
-        logging.error("Review processing failed")
-        return
-        
-    # Load reviews into full database
-    logging.info("Loading reviews into database...")
-    result = manager.load_reviews(cleaned_file)
-    if result == ERROR:
-        logging.error("Failed to load reviews into database")
-        return
-    elif result == NO_UPDATES:
-        logging.info("No new reviews to add to database")
-    else:
-        logging.info("Successfully updated reviews database")
-        
-    # Prepare ML datasets
-    logging.info("Preparing ML datasets...")
-    try:
-        manager.prepare_ml_datasets()
-        logging.info("ML datasets prepared successfully")
-    except Exception as e:
-        logging.error(f"Error preparing ML datasets: {e}")
-
-
-if __name__ == "__main__":
-    # Configure logging
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-    )
-    
-    # Run pipeline with command line arguments
-    import argparse
-    parser = argparse.ArgumentParser(description='Run reviews processing pipeline')
-    parser.add_argument('--from-scratch', action='store_true', help='Start from extraction')
-    args = parser.parse_args()
-    
-    run_review_pipeline(start_from_scratch=args.from_scratch)
