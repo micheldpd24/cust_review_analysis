@@ -6,7 +6,9 @@ spacy
 pandas
 jupyter
 nbformat
+dash
 dash-bootstrap-components
 dash-core-components
 dash-html-components
-
+bertopic
+gensim
