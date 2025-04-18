@@ -168,8 +168,8 @@ topic_modeling_task = DockerOperator(
     docker_url='unix:///var/run/docker.sock',
     mounts=[
         Mount(source="/Users/micheldpd/Projects/rev_analysis/data/full", target="/data/full", type="bind"),
-        Mount(source="/Users/micheldpd/Projects/rev_analysis/data/output", target="/data/output", type="bind"),
-        Mount(source="/Users/micheldpd/Projects/rev_analysis/topic_modeling", target="/app", type="bind"),
+        Mount(source="/Users/micheldpd/Projects/rev_analysis/data/results", target="/data/results", type="bind"),
+        Mount(source="/Users/micheldpd/Projects/rev_analysis/topic_modeling", target="/app",type="bind")
     ],
     network_mode='bridge',
     auto_remove='never',
