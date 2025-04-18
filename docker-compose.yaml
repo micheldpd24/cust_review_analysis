@@ -74,7 +74,6 @@ x-airflow-common:
     # The following line can be used to set a custom config file, stored in the local config folder
     # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-    # TRANSFORMERS_CACHE: /hf_cache
   # env_file:
   # - .env
   volumes:
@@ -84,11 +83,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/plugins:/opt/airflow/plugins
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/parameters:/opt/airflow/parameters
-    # - ${AIRFLOW_PROJ_DIR:-.}/nltk_data:/home/airflow/nltk_data
-    # - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
-    # - '/tmp:/tmp'
-    # - ${AIRFLOW_PROJ_DIR:-.}/hf_cache:/hf_cache
-    # - ${AIRFLOW_PROJ_DIR:-.}/sentence_transformer_model:/opt/airflow/sentence_transformer_model
+    - '/var/run/docker.sock:/var/run/docker.sock' # for DockerOperator
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
