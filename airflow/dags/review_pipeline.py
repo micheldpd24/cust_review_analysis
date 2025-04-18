@@ -2,7 +2,6 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.providers.docker.operators.docker import DockerOperator
 from docker.types import Mount
-from airflow.operators.bash import BashOperator
 from airflow.operators.dummy import DummyOperator
 from datetime import datetime, timedelta
 
@@ -10,7 +9,8 @@ from review_manager import ReviewsManager  # Import the ReviewsManager class
 import docker
 
 # ----
-# Function to manage the container running the model training&evaluation and the model's dashboard
+# Function to manage the container running the model training & evaluation 
+# and the model's performance dashboard
 # ----
 
 def check_and_stop_bertopic_container(**kwargs):
@@ -167,7 +167,6 @@ topic_modeling_task = DockerOperator(
     container_name='bertopic',
     docker_url='unix:///var/run/docker.sock',
     mounts=[
-       # Mount(source="/var/run/docker.sock", target="/var/run/docker.sock", type="bind"),
         Mount(source="/Users/micheldpd/Projects/rev_analysis/data/full", target="/data/full", type="bind"),
         Mount(source="/Users/micheldpd/Projects/rev_analysis/data/output", target="/data/output", type="bind"),
         Mount(source="/Users/micheldpd/Projects/rev_analysis/topic_modeling", target="/app", type="bind"),
