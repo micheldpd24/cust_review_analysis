@@ -19,6 +19,8 @@ from typing import Dict, List, Optional, Any
 from bs4 import BeautifulSoup
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+import spacy                        # +++
+from spacy.util import is_package   # +++
 from functools import lru_cache
 
 # Add the parent directory to the path
@@ -40,11 +42,40 @@ from config import (
     SENTIMENT_THRESHOLDS,
 )
 
+# Spacy Model to use
+MODEL_NAME = "fr_core_news_sm"  # +++
 
 # Constants
 SUCCESS = 1
 NO_UPDATES = 0
 ERROR = None
+
+
+
+# Functiond to setup Spacy Model +++
+def ensure_model(model_name=MODEL_NAME):
+    """
+    Ensures that the French language model 'fr_core_news_sm' is installed.
+    If not, it downloads the model.
+    """
+    if not is_package(model_name):
+        logging.info(f"Model '{model_name}' is not installed. Downloading now...")
+        spacy.cli.download(model_name)
+    else:
+        logging.info(f"Model '{model_name}' is already installed.")
+
+def setup_spacy(model_name=MODEL_NAME):
+    ensure_model(model_name)
+    try:
+        nlp = spacy.load(model_name)
+        logging.info(f"Loaded SpaCy model '{model_name}' successfully.")
+        return nlp
+    except Exception as e:
+        logging.error(f"Failed to load SpaCy model '{model_name}': {e}")
+        raise
+
+# Setup Spacy Model +++
+nlp = setup_spacy()
 
 # Load stopwords only once for efficiency
 @lru_cache(maxsize=1)
@@ -299,6 +330,26 @@ class ReviewsManager:
         cleaned_text = " ".join(tokens_cleaned)
         return cleaned_text
 
+    # Lemmatize a french text with SpaCy   +++
+    def lemmatize_text(self, text):
+        """
+        Lemmatizes a given French text using SpaCy's French language model.
+
+        Args:
+            text (str): The input French text to be lemmatized.
+
+        Returns:
+            str: A string containing the lemmatized version of the input text.
+        """
+
+        # Process the text with SpaCy
+        doc = nlp(text)
+        
+        # Extract lemmas for each token and join them into a single string
+        lemmatized_text = " ".join([token.lemma_ for token in doc])
+        
+        return lemmatized_text
+
     def process_reviews(self, raw_file: str) -> Optional[str]:
         """
         Process raw reviews by cleaning and enriching the data.
@@ -441,12 +492,15 @@ class ReviewsManager:
         logging.info(f"Removed {initial_rows - len(df)} rows with invalid ratings")
         
         # Clean review text
-        df["review"] = df["review"].apply(self.clean_text)
+        df["review_clean"] = df["review"].apply(self.clean_text)
         
         # Remove short reviews
         initial_rows = len(df)
         df = df[df["review"].str.len() > 4]
         logging.info(f"Removed {initial_rows - len(df)} short reviews")
+
+        # Lemmatize review text +++
+        df["review_lemmatized"] = df["review_clean"].apply(self.lemmatize_text) 
         
         return df
 
