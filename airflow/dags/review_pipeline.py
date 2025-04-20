@@ -111,14 +111,14 @@ def branch_task(**kwargs):
     load_result = ti.xcom_pull(task_ids='load_reviews')
     
     if load_result == "SUCCESS":
-        return 'topic_modeling_task'
+        return 'check_container_task'
     else:
         return 'stop_pipeline_task'
 
 
 # Tâche de vérification et suppression du container si nécessaire
 check_container_task = PythonOperator(
-    task_id='check_and_stop_bertopic_container',
+    task_id='check_container_task',
     python_callable=check_and_stop_bertopic_container,
     provide_context=True,
     dag=dag,
@@ -163,7 +163,7 @@ stop_pipeline_task = DummyOperator(
 # Add a python operator for the train model task
 topic_modeling_task = DockerOperator(
     task_id='topic_modeling_task', 
-    image='topic-container:latest',
+    image='bertopic:latest',
     container_name='bertopic',
     docker_url='unix:///var/run/docker.sock',
     mounts=[
@@ -179,6 +179,7 @@ topic_modeling_task = DockerOperator(
 )
 
 # Set task dependencies
-check_container_task >> extract_reviews >> process_reviews >> load_reviews
-load_reviews >> branch >> [topic_modeling_task, stop_pipeline_task]
+extract_reviews >> process_reviews >> load_reviews >> branch
+branch >> [ check_container_task, stop_pipeline_task ]
+check_container_task >> topic_modeling_task
 
