@@ -313,5 +313,28 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  # run topic modeling "bertopic" container
+  bertopic:
+    build:
+      context: ./topic_modeling
+      dockerfile: Dockerfile
+    container_name: bertopic
+    image: bertopic:latest
+    ports:
+      - "${BERTOPIC_PORT:-8051}:8050"
+    volumes:
+      - ${AIRFLOW_PROJ_DIR:-.}/data/full:/data/full
+      - ${AIRFLOW_PROJ_DIR:-.}/data/results:/data/results
+      - ${AIRFLOW_PROJ_DIR:-.}/topic_modeling:/app
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8051/"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+    depends_on:
+      airflow-webserver:
+        condition: service_healthy
+    restart: unless-stopped
+
 volumes:
   postgres-db-volume:
