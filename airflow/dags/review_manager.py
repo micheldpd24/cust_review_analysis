@@ -551,7 +551,7 @@ class ReviewsManager:
             
             # Use more efficient concat and drop_duplicates
             df_full_updated = pd.concat([df_full, df], ignore_index=True)
-            df_full_updated = df_full_updated.drop_duplicates(subset=df.columns, keep="last")
+            df_full_updated = df_full_updated.drop_duplicates(subset=["id", "title"], keep="last")
             
             final_length = len(df_full_updated)
             new_records_added = final_length - initial_length
