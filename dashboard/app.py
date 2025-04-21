@@ -33,16 +33,16 @@ DATA_PATH = "/data/full_reviews.csv"
 try:
     data = pd.read_csv(DATA_PATH)
     # Ensure required columns are present
-    required_columns = ["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review", "reply", "id"]
+    required_columns = ["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review_clean", "reply", "id"]
     missing_columns = [col for col in required_columns if col not in data.columns]
     if missing_columns:
         raise ValueError(f"Missing columns in data: {missing_columns}")
 except FileNotFoundError:
-    data = pd.DataFrame(columns=["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review", "reply", "id"])
+    data = pd.DataFrame(columns=["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review_clean", "reply", "id"])
     print("Warning: Data file not found. Using empty DataFrame.")
 except ValueError as e:
     print(f"Data error: {e}")
-    data = pd.DataFrame(columns=["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review", "reply", "id"])
+    data = pd.DataFrame(columns=["year", "yearQuarter", "yearMonth", "date", "sentiment", "rating", "review_clean", "reply", "id"])
 
 
 # Reusable Graph Component
@@ -259,11 +259,11 @@ def textual_analysis_tab(filtered_data):
 )
 def update_textual_analysis(sentiment, years, quarters, months):
     filtered_data = filter_data(years, quarters, months)
-    if filtered_data is None or "review" not in filtered_data.columns or filtered_data["review"].isna().all():
+    if filtered_data is None or "review_clean" not in filtered_data.columns or filtered_data["review_clean"].isna().all():
         return "", []
     
     text_data = filtered_data[filtered_data["sentiment"] == sentiment]
-    text = " ".join(text_data["review"].dropna().astype(str))
+    text = " ".join(text_data["review_clean"].dropna().astype(str))
     
     if not text.strip():
         return "", []
