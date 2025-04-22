@@ -1,19 +1,14 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator, BranchPythonOperator
 from airflow.providers.docker.operators.docker import DockerOperator
-from airflow.operators.bash import BashOperator
 from docker.types import Mount
 from airflow.operators.dummy import DummyOperator
 from datetime import datetime, timedelta
 import os
-
 from review_manager import ReviewsManager  # Import the ReviewsManager class
 import docker
 
-# ----
-# Function to manage the container running the model training & evaluation 
-# and the model's performance dashboard
-# ----
+
 
 # get absolute path of the project directory on local host
 PROJECT_DIR = os.environ["PROJECT_DIR"]
@@ -184,7 +179,7 @@ topic_modeling_task = DockerOperator(
     port_bindings={8050: 8051},
     dag=dag,
 )
-"/Users/erasdf/Projects/rev_analysis/data/full"
+
 
 # Set task dependencies
 extract_reviews >> process_reviews >> load_reviews >> branch
