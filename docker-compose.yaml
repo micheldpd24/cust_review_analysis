@@ -74,8 +74,8 @@ x-airflow-common:
     # The following line can be used to set a custom config file, stored in the local config folder
     # If you want to use it, outcomment it and replace airflow.cfg with the name of your config file
     # AIRFLOW_CONFIG: '/opt/airflow/config/airflow.cfg'
-  # env_file:
-  # - .env
+  env_file:
+    - proj_dir.env
   volumes:
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/dags:/opt/airflow/dags
     - ${AIRFLOW_PROJ_DIR:-.}/airflow/logs:/opt/airflow/logs
@@ -322,10 +322,6 @@ services:
     image: bertopic:latest
     ports:
       - "${BERTOPIC_PORT:-8051}:8050"
-    volumes:
-      - ${AIRFLOW_PROJ_DIR:-.}/data/full:/data/full
-      - ${AIRFLOW_PROJ_DIR:-.}/data/results:/data/results
-      - ${AIRFLOW_PROJ_DIR:-.}/topic_modeling:/app
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8051/"]
       interval: 60s
@@ -334,7 +330,7 @@ services:
     depends_on:
       airflow-webserver:
         condition: service_healthy
-    restart: unless-stopped
+    restart: no
 
 volumes:
   postgres-db-volume:
