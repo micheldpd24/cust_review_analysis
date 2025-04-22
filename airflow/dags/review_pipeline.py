@@ -5,10 +5,58 @@ from airflow.operators.bash import BashOperator
 from docker.types import Mount
 from airflow.operators.dummy import DummyOperator
 from datetime import datetime, timedelta
+import os
 
 from review_manager import ReviewsManager  # Import the ReviewsManager class
 import docker
 
+# ----
+# Function to manage the container running the model training & evaluation 
+# and the model's performance dashboard
+# ----
+
+# get absolute path of the project directory on local host
+PROJECT_DIR = os.environ["PROJECT_DIR"]
+
+def check_and_stop_bertopic_container(**kwargs):
+    """
+    Check if bertopic' container is running. If so, stop it and remove it. 
+    otherwise, do nothing.
+    """
+    client = docker.from_env()
+    container_name = 'bertopic'
+    
+    try:
+        # Search the container by name
+        containers = client.containers.list(all=True, filters={"name": container_name})
+        
+        if containers:
+            container = containers[0]
+            container_status = container.status
+            
+            print(f"Container 'bertopic' found with status: {container_status}")
+            
+            # Si le container est en cours d'exécution, l'arrêter
+            if container_status == 'running':
+                print("Stopping bertopic' container ...")
+                container.stop()
+                print("Container 'bertopic' stopped successfully")
+                
+            # Removing the container
+            print("Removing 'bertopic'container ...")
+            container.remove()
+            print("'bertopic' container removed successfully")
+            
+        else:
+            print("No container named 'bertopic' found. Continuing the pipeline.")
+            
+    except Exception as e:
+        print(f"Error during container verification/stopping: {e}")
+        # Do not fail the pipeline in case of error
+        print("pipeline continuation despite the error")
+
+
+# ----
 
 # Default arguments for the DAG
 default_args = {
@@ -29,6 +77,7 @@ dag = DAG(
     schedule_interval='*/60 * * * *',
     catchup=False,
 )
+
 
 # Initialize the ReviewsManager instance
 manager = ReviewsManager()
@@ -69,12 +118,12 @@ def branch_task(**kwargs):
     
     if load_result == "SUCCESS":
         # return 'check_bertopic_container_task'
-        return 'topic_modeling_task'
+        return 'check_bertopic_container_task'
     else:
         return 'stop_pipeline_task'
 
 
-# Define the tasks
+# Define the tasks using PythonOperator
 extract_reviews = PythonOperator(
     task_id='extract_reviews',
     python_callable=extract_reviews_task,
@@ -95,6 +144,14 @@ load_reviews = PythonOperator(
     dag=dag,
 )
 
+# Chekc and run bertopic container if necessary
+check_bertopic_container_task = PythonOperator(
+    task_id='check_bertopic_container_task',
+    python_callable=check_and_stop_bertopic_container,
+    provide_context=True,
+    dag=dag,
+)
+
 # Branch operator to decide next steps
 branch = BranchPythonOperator(
     task_id='branch_task',
@@ -109,14 +166,28 @@ stop_pipeline_task = DummyOperator(
     dag=dag,
 )
 
-topic_modeling_task = BashOperator(
-    task_id='topic_modeling_task',
-    bash_command='docker exec bertopic python main.py',
-    dag=dag
+# Add a python operator for the train model task
+topic_modeling_task = DockerOperator(
+    task_id='topic_modeling_task', 
+    image='bertopic:latest',
+    command=['python', 'main.py'],
+    container_name='bertopic',
+    docker_url='unix:///var/run/docker.sock',
+    mounts=[
+        Mount(source=f"{PROJECT_DIR}/data/full", target="/data/full", type="bind"),
+        Mount(source=f"{PROJECT_DIR}/data/results", target="/data/results", type="bind"),
+        Mount(source=f"{PROJECT_DIR}/topic_modeling", target="/app",type="bind")
+    ],
+    network_mode='bridge',
+    auto_remove='never',
+    # tty=True,
+    port_bindings={8050: 8051},
+    dag=dag,
 )
+"/Users/erasdf/Projects/rev_analysis/data/full"
 
 # Set task dependencies
 extract_reviews >> process_reviews >> load_reviews >> branch
-branch >> [stop_pipeline_task, topic_modeling_task]
-
+branch >> [check_bertopic_container_task, stop_pipeline_task ]
+check_bertopic_container_task >> topic_modeling_task
 
