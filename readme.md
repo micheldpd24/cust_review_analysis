@@ -35,23 +35,41 @@ The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to 
 
 ```bash
 ├── airflow
-│   ├── Dockerfile
 │   ├── dags
-│   └── requirements.txt
-├── dashboard
+│   │   ├── config.py
+│   │   ├── config.yaml
+│   │   ├── review_manager.py
+│   │   └── review_pipeline.py
 │   ├── Dockerfile
-│   ├── app.py
 │   └── requirements.txt
+│ 
+├── dashboard
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
+│ 
 ├── data
 │   ├── archive
 │   ├── cleaned
 │   ├── full
-│   └── raw
-├── docker-compose.yaml
+│   ├── raw
+│   └── results
+│ 
 ├── notebooks
 │   ├── reviews_dashboard.ipynb
 │   ├── reviews_dataviz.ipynb
 │   └── reviews_extraction.ipynb
+│
+├── topic_modeling
+│   ├── config.yaml
+│   ├── main.py
+│   ├── Dockerfile
+│   └── requirements.txt
+│
+├── parameters
+│   └── max_page.txt
+│ 
+├── docker-compose.yaml
 ├── readme.md
 ├── requirements.txt
 ├── setup.sh
@@ -122,6 +140,8 @@ will be created after running the setup script and the pipeline.
 - **`raw/`**:
   - Contains raw, unprocessed data scraped from Trustpilot.
 
+- **`results/`**:
+  - Contains saved trained bertopic models.
 ---
 
 #### **`notebooks/`**
@@ -135,6 +155,20 @@ This directory contains Jupyter notebooks for exploratory data analysis, develop
 
 - **`reviews_extraction.ipynb`**:
   - Notebook for testing and debugging the scraping and data extraction process.
+
+---
+
+#### **`topic_modeling/`**
+This directory contains all files related to the Dash-based dashboard.
+
+- **`Dockerfile`**:
+  - Defines the Docker image for the bertopic topic modeling, including dependencies and configurations.
+
+- **`main.py`**:
+  - The main Python script for the bertopic model training and the dashboard to visualize bertopic model's performance and topics.
+
+- **`requirements.txt`**:
+  - Lists Python dependencies required for bertopic and the the bertopic model's performance and topics dashboard.
 
 ---
 
@@ -180,10 +214,13 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
 3. **Load Reviews**:
    - Saves the processed data into `full_reviews.csv`.
 
-4. **Check New Data**:
-   - Verifies if new reviews were added and triggers updates accordingly.
+4. **Check Bertopic Container Task**:
+   - Checks if the bertopic container is currently running. If it is, the container is stopped and removed to enable the creation and launch of a new instance of the container for the next bertopic training round, incorporating the updated reviews data.
+  
+5. **Toic Modeling Task**:
+   - Train a BERTopic model on updated reviews data. Save the trained model. Calculate coherence scores and diversity score for the model. Update the topic modeling dashboard with the coherence scores, diversity score, and visualizations of the topics.
 
-5. **Dynamic Dashboard Updates**:
+**Dynamic Dashboard Updates**:
    - The dashboard checks `full_reviews.csv` every 50 seconds for updates.
    - If new data is detected, the dashboard reloads and refreshes the visualizations.
 
@@ -214,7 +251,7 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
      ```
 
 3. **Build and Launch Docker Containers**:
-   - Use the provided `docker-compose.yml` file to launch Airflow, the Dash dashboard, and other dependencies:
+   - Use the provided `docker-compose.yml` file to launch Airflow, the Dash dashboard, the bertopic container and other dependencies:
      ```bash
      docker-compose up --build
      ```
@@ -224,6 +261,7 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
      - **PostgreSQL**: Database for Airflow metadata.
      - **Redis**: Message broker for CeleryExecutor.
      - **Dash Dashboard**: Accessible at `http://localhost:8050`.
+     - **BERTopic Container**: Model training and Topic Modeling Dashboard
 
 4. **Access the Dashboard**:
    - Once the containers are running, open the Dash app in your browser:
@@ -240,6 +278,10 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
      - Username: `airflow`
      - Password: `airflow`
 
+6. **Access the Topic Modeling Dashboard**:
+   - Once the bertopic model is trained, model perfomance and topic modeling visualization are available on a Dash dashboard at through you brower at the address:
+     ```bash
+     http://localhost:8050
 ---
 
 ## Usage
@@ -247,11 +289,12 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
 1. **Trigger the Pipeline**:
    - Trigger the Airflow DAG manually or wait for the scheduled run.
 
-2. **View the Dashboard**:
+2. **View the Reviews Dashboard**:
    - Open the Dash app in your browser to explore the latest reviews and insights.
-
-3. **Export Data**:
    - Use the export button on the dashboard to download filtered data for further analysis.
+
+2. **View the Topic Modeling Dashboard**:
+  - Open the Topic Modeling Dash app in your browser to explore the the bertopic model perfomance and to visualize topics.
 
 ---
 
