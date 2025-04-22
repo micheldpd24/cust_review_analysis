@@ -10,6 +10,7 @@ echo "AIRFLOW_UID=50000" > .env
 echo "Creating directories data/raw and data/cleaned..."
 mkdir -p data/raw
 mkdir -p data/cleaned
+mkdir -p data/results
 
 # Check if the directories were created successfully
 if [ -d "data/raw" ] && [ -d "data/cleaned" ]; then
