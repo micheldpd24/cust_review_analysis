@@ -1,7 +1,7 @@
 # config.yaml
 # -----------
 data:
-  input_filepath: "/data/full/reviews_test.csv"  # Path to the CSV file
+  input_filepath: "/data/full/negative_reviews.csv"  # Path to the CSV file
   review_column: "review_lemmatized"  # Column name for reviews
   timestamps_column: "yearMonth"  # Column name for timestamps
   sample_size: null  # Optional: Number of reviews to sample. Use null for all data 
