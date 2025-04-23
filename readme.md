@@ -12,7 +12,7 @@ The pipeline is orchestrated using **Apache Airflow** running in a Docker contai
 2. [Project organization](#project-organization)
 3. [Dashboard Features](#dashboard-features)
 4. [Pipeline Workflow](#pipeline-workflow)
-5. [Dashboard Screenshots](#dashboard-screenshots)
+5. [Reviews Dashboard Screenshots](#dashboard-screenshots)
 6. [Topic Modeling Dashboard Screenshots](#topic-modeling-dashboard-screenshots)
 7. [Installation and Setup](#installation-and-setup)
 8. [Usage](#usage)
@@ -27,9 +27,11 @@ The project automates the collection and analysis of customer reviews from Trust
 1. **Scraping**: Extracts review data (text, sentiment, rating, date, etc.) from Trustpilot.
 2. **Processing**: Cleans and processes the scraped data to derive insights such as sentiment analysis and temporal features.
 3. **Loading**: Saves the processed data into a CSV file (`full_reviews.csv`).
-4. **Visualization**: Provides a Dash-based dashboard that dynamically updates every 50 seconds if new data is available.
+4. **Review Visualization**: Provides a Dash-based dashboard that dynamically updates every 50 seconds if new data is available.
+5. **Topic Modeling**: Train a bertopic model on review data
+6. **Topic Visualization**: Visualize bertopic model performance metrice(coherence and diversity scores) and topics visualization
 
-The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to the dataset and dashboard.
+The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to the dataset and the dashboards.
 
 ---
 
@@ -79,7 +81,7 @@ The pipeline is scheduled using **Apache Airflow**, ensuring regular updates to 
 
 ### Project Tree Description
 
-This is the structure of a project designed to scrape, process, and analyze customer reviews from **Trustpilot** for a given company. The project includes an **Apache Airflow pipeline** for orchestrating data workflows, a **Dash-based dashboard** for visualizing insights, and supporting files for development and deployment. Below is a detailed description of each component in the tree:
+This is the structure of a project designed to scrape, process, and analyze customer reviews from **Trustpilot** for a given company. The project includes an **Apache Airflow pipeline** for orchestrating data workflows, topic modeling and two **Dash-based dashboards** for visualizing insights, and supporting files for development and deployment. Below is a detailed description of each component in the tree:
 
 ---
 
@@ -163,6 +165,9 @@ This directory contains Jupyter notebooks for exploratory data analysis, develop
 #### **`topic_modeling/`**
 This directory contains all files related to the Dash-based dashboard.
 
+- **`config.yaml`**:
+  - Defines the yaml configuration file to setup and finetune the bertopic model.
+
 - **`Dockerfile`**:
   - Defines the Docker image for the bertopic topic modeling, including dependencies and configurations.
 
@@ -174,9 +179,9 @@ This directory contains all files related to the Dash-based dashboard.
 
 ---
 
-## Dashboard Features
+## Reviews Dashboard Features
 
-The dashboard provides the following features:
+The reviews dashboard provides the following features:
 
 ### **1. Filters**
 - Filter reviews by year, quarter, and month.
@@ -224,11 +229,11 @@ The pipeline is orchestrated using **Apache Airflow** and consists of the follow
 4. **Check Bertopic Container Task**:
    - Checks if the bertopic container is currently running. If it is, the container is stopped and removed to enable the creation and launch of a new instance of the container for the next bertopic training round, incorporating the updated reviews data.
   
-5. **Toic Modeling Task**:
+5. **Topic Modeling Task**:
    - Train a BERTopic model on updated reviews data. Save the trained model. Calculate coherence scores and diversity score for the model. Update the topic modeling dashboard with the coherence scores, diversity score, and visualizations of the topics.
 
-**Dynamic Dashboard Updates**:
-   - The dashboard checks `full_reviews.csv` every 50 seconds for updates.
+6. **Dynamic Review Dashboard Updates**:
+   - The reviews dashboard checks `full_reviews.csv` every 50 seconds for updates.
    - If new data is detected, the dashboard reloads and refreshes the visualizations.
 
 ---
@@ -304,7 +309,12 @@ A visualization of frequency of topics over time
    cd trustpilot-reviews-analysis
    ```
 
-2. **Run the `setup.sh` Script**:
+2. **Update and Run the `setup.sh` Script**:
+   - Open setup.sh file and add the absolute path to the project directory:
+    ```bash
+    PROJECT_DIR="[to replace with the absolute path to the project directory]"
+    # for example mine is : PROJECT_DIR="/Users/mdpd/Projects/rev_analysis"
+    ``
    - Ensure the `setup.sh` script has execute permissions:
      ```bash
      chmod +x setup.sh
@@ -484,8 +494,8 @@ dashboard:
      - **Airflow Scheduler**: Handles DAG execution.
      - **PostgreSQL**: Database for Airflow metadata.
      - **Redis**: Message broker for CeleryExecutor.
-     - **Dash Dashboard**: Accessible at `http://localhost:8050`.
-     - **BERTopic Container**: Model training and Topic Modeling Dashboard
+     - **Dash Reveiw Dashboard**: Accessible at `http://localhost:8050`.
+     - **bertopic Container**: Model training and Topic Modeling Dashboard at `http://localhost:8051`.
 
 6. **Access the Reviews Dashboard**:
    - Once the containers are running, open the Dash app in your browser:
@@ -493,7 +503,13 @@ dashboard:
      http://localhost:8050
      ```
 
-7. **Access Airflow**:
+7. **Access the Topic Modeling Dashboard**:
+   - Once the bertopic model is trained, model perfomance and topic modeling visualization are available on a Dash dashboard through you brower at the address:
+     ```bash
+     http://localhost:8060
+     ```
+
+8. **Access Airflow**:
    - Open the Airflow web interface in your browser:
      ```bash
      http://localhost:8080
@@ -501,13 +517,6 @@ dashboard:
    - Default credentials:
      - Username: `airflow`
      - Password: `airflow`
-
-8. **Access the Topic Modeling Dashboard**:
-   - Once the bertopic model is trained, model perfomance and topic modeling visualization are available on a Dash dashboard through you brower at the address:
-     ```bash
-     http://localhost:8060
-     ```
-
 ---
 
 ## Usage
